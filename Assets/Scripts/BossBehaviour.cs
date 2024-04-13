@@ -14,8 +14,7 @@ public class BossBehaviour : MonoBehaviour
     public void Damage(int Damage){
         health -= Damage;
         healthBar.fillAmount = health / maxHealth;
-        Debug.Log(health/maxHealth);
-
+        
         if(health <= 0){
             Die();
         }

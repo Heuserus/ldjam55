@@ -1,13 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 [CreateAssetMenu(fileName = "New Weapon")]
 public class Weapon : ScriptableObject
 {
-    public string name; // Ben
+    public string name; 
     public int maxAmmo;
 
     public Transform FirePoint;
@@ -33,6 +35,8 @@ public class Weapon : ScriptableObject
     public GameObject model;
 
     public GameObject playerCam;
+
+    public GameObject WeaponStats;
 
     public void changeAmmo(int ammo){
         currentAmmo += ammo;

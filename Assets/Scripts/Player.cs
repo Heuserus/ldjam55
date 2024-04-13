@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class Player : MonoBehaviour
     bool readyToJump;
 
     public float jumpCooldown;
+
+    public Transform orientation;
     
     [Header("Grounded")]
     public LayerMask whatIsGround;
@@ -22,12 +25,19 @@ public class Player : MonoBehaviour
     [Header("Keybinds")]
     public KeyCode jumpKey;
 
-    public Transform orientation;
-
     float horizontalInput;
     float verticalInput;
 
     Vector3 moveDirection;
+
+    [Header("Stats")]
+
+    public float maxHealth = 10f;
+
+    public float health;
+
+    public Image healthBar;
+
 
     Rigidbody rb;
     // Start is called before the first frame update
@@ -36,6 +46,7 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
         readyToJump = true;
+        health = maxHealth;
     }
 
     // Update is called once per frame
@@ -101,5 +112,16 @@ public class Player : MonoBehaviour
             Vector3 limitedVel = flatVel.normalized * moveSpeed;
             rb.velocity = new Vector3(limitedVel.x,rb.velocity.y,limitedVel.z);
         }
+    }
+
+    public void Damage(int damage){
+        health -= damage;
+        healthBar.fillAmount = health / maxHealth;
+        if(health<=0){
+            Die();
+        }
+    }
+    public void Die(){
+        Destroy(this.gameObject);
     }
 }
