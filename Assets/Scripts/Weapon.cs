@@ -38,6 +38,8 @@ public class Weapon : ScriptableObject
 
     public GameObject WeaponStats;
 
+    public TextMeshPro weaponStatsText;
+
     public void changeAmmo(int ammo){
         currentAmmo += ammo;
     }

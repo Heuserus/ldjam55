@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class WeaponArm : MonoBehaviour
@@ -71,6 +72,8 @@ public class WeaponArm : MonoBehaviour
                 weapon.playerCam = playerCam;
                 weapon.currentAmmo = weapon.maxAmmo;
                 weapon.FirePoint = weapon.weaponInstance.transform.Find("FirePoint");
+                weapon.weaponStatsText = weapon.WeaponStats.GetComponent<TextMeshPro>();
+                
                 state = WeaponState.ready;
             break;
             case WeaponState.secondary:
