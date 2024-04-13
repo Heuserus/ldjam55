@@ -11,6 +11,10 @@ public class BossBehaviour : MonoBehaviour
     public float health;
     public Image healthBar;
 
+    public GameObject gameMaster;
+
+    public Animator animator;
+
     public void Damage(int Damage){
         health -= Damage;
         healthBar.fillAmount = health / maxHealth;
@@ -24,6 +28,8 @@ public class BossBehaviour : MonoBehaviour
     void Start()
     {
         health = maxHealth;
+        
+        
     }
 
     // Update is called once per frame

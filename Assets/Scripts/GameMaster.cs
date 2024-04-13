@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameMaster : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class GameMaster : MonoBehaviour
     public GameObject Boss1;
     public GameObject Boss2Prefab;
     public GameObject Boss2;
+
+    public Image BossHealthbar;
 
     enum GameState{
         opening,
@@ -34,7 +37,6 @@ public class GameMaster : MonoBehaviour
     {
         switch(state){
             case GameState.opening:
-
             break;
 
         }
@@ -43,5 +45,8 @@ public class GameMaster : MonoBehaviour
 
     private void spawnBoss1(){
         Boss1 = Instantiate(Boss1Prefab);
+        Boss1.GetComponent<BossBehaviour>().gameMaster = this.gameObject;
+        Boss1.GetComponent<BossBehaviour>().healthBar = BossHealthbar;
+        
     }
 }

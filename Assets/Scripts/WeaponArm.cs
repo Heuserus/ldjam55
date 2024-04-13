@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class WeaponArm : MonoBehaviour
 {
+
+    public Weapon[] weapons;
     public Weapon weapon;
     float coolDown;
     float shootingTime;
@@ -12,6 +14,8 @@ public class WeaponArm : MonoBehaviour
     float secondaryTime;
 
     float secondaryCooldown;
+
+    float summoningTime;
 
     public GameObject playerCam;
 
@@ -21,7 +25,8 @@ public class WeaponArm : MonoBehaviour
         startUp,
         shooting,
         secondary,
-        secondaryCooldown
+        secondaryCooldown,
+        summoning
 
     }
 
@@ -33,13 +38,22 @@ public class WeaponArm : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         switch(state){
             case WeaponState.ready:
+            
             if(Input.GetKeyDown(fire)){
                 
+                if(weapon.currentAmmo== 0){
+                    summonNewWeapon();
+                    state = WeaponState.summoning;
+                }
+                else{
                 weapon.shoot();
                 state = WeaponState.shooting;
                 shootingTime = weapon.shootingTime;
+                }
+                
             }
             if(Input.GetKeyDown(secondary)){
                 
@@ -95,6 +109,17 @@ public class WeaponArm : MonoBehaviour
                     state = WeaponState.ready;
                 }
             break;
+            case WeaponState.summoning:
+                if(summoningTime > 0){
+                    summoningTime -= Time.deltaTime;
+                }
+                else state = WeaponState.startUp;
+            break;
         }
+    }
+    public void summonNewWeapon(){
+        weapon.die();
+        weapon = weapons[Random.Range(0,weapons.Length)];
+        summoningTime = weapon.summoningTime;
     }
 }

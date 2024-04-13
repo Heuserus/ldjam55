@@ -25,6 +25,8 @@ public class Weapon : ScriptableObject
 
     public float secondaryCooldown;
 
+    public float summoningTime;
+
     public virtual void shoot(){}
 
     public virtual void secondary(){}
@@ -49,6 +51,9 @@ public class Weapon : ScriptableObject
 
     public void displayText(){
         weaponStatsText.text = name + "   " + currentAmmo + "/"+maxAmmo;
+    }
+    public void die(){
+        Destroy(weaponInstance);
     }
 
     
