@@ -1,1 +1,1 @@
-# Armamancer - He doenst know how to reload
+# Armamancer - He doesn't know how to reload
