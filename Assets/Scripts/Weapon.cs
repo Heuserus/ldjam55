@@ -36,12 +36,17 @@ public class Weapon : ScriptableObject
 
     public GameObject playerCam;
 
-    public GameObject WeaponStats;
+    public TextMeshProUGUI WeaponStats;
 
     public TextMeshPro weaponStatsText;
 
     public void changeAmmo(int ammo){
         currentAmmo += ammo;
+
+    }
+
+    public void displayText(){
+        weaponStatsText.text = name;
     }
 
     
