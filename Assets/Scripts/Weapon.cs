@@ -1,18 +1,40 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class Weapon : MonoBehaviour
+
+[CreateAssetMenu(fileName = "New Weapon")]
+public class Weapon : ScriptableObject
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    public string name; // Ben
+    public int maxAmmo;
+
+    public int currentAmmo;
+
+    public float shootingTime; // 
+
+    public float secondaryTime;
+
+    public float coolDownTime;
+
+    public float secondaryCooldown;
+
+    public virtual void shoot(){}
+
+    public virtual void secondary(){}
+
+    public GameObject weaponPrefab;
+
+    public GameObject weaponInstance;
+
+    public GameObject model;
+
+    public void changeAmmo(int ammo){
+        currentAmmo += ammo;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
+
+    
 }
