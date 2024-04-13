@@ -14,7 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Shotgun
   maxAmmo: 12
+  FirePoint: {fileID: 0}
+  currentAmmo: 12
   shootingTime: 0.5
+  secondaryTime: 0.5
   coolDownTime: 0.5
+  secondaryCooldown: 0.5
   weaponPrefab: {fileID: 6395387465177039638, guid: 17e14934a6ff7734992c6c30b58b41af, type: 3}
   weaponInstance: {fileID: 0}
+  model: {fileID: 0}
+  playerCam: {fileID: 0}
+  FireParticles: {fileID: 0}
+  HitPoint: {fileID: 0}

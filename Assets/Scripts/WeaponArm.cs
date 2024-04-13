@@ -68,6 +68,9 @@ public class WeaponArm : MonoBehaviour
                 weapon.weaponInstance = Instantiate(weapon.weaponPrefab,playerCam.transform);
                 weapon.weaponInstance.SetActive(true);
                 weapon.model = weapon.weaponInstance.transform.Find("Holder/Model").gameObject;
+                weapon.playerCam = playerCam;
+                weapon.currentAmmo = weapon.maxAmmo;
+                weapon.FirePoint = weapon.weaponInstance.transform.Find("FirePoint");
                 state = WeaponState.ready;
             break;
             case WeaponState.secondary:

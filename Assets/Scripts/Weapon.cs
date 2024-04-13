@@ -10,6 +10,8 @@ public class Weapon : ScriptableObject
     public string name; // Ben
     public int maxAmmo;
 
+    public Transform FirePoint;
+
     public int currentAmmo;
 
     public float shootingTime; // 
@@ -29,6 +31,8 @@ public class Weapon : ScriptableObject
     public GameObject weaponInstance;
 
     public GameObject model;
+
+    public GameObject playerCam;
 
     public void changeAmmo(int ammo){
         currentAmmo += ammo;
