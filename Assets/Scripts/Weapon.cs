@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
+
 [CreateAssetMenu(fileName = "New Weapon")]
 public class Weapon : ScriptableObject
 {
@@ -36,17 +37,18 @@ public class Weapon : ScriptableObject
 
     public GameObject playerCam;
 
-    public TextMeshProUGUI WeaponStats;
+    public GameObject weaponStats;
 
-    public TextMeshPro weaponStatsText;
+    public TextMeshProUGUI weaponStatsText;
 
     public void changeAmmo(int ammo){
         currentAmmo += ammo;
+        displayText();
 
     }
 
     public void displayText(){
-        weaponStatsText.text = name;
+        weaponStatsText.text = name + "   " + currentAmmo + "/"+maxAmmo;
     }
 
     

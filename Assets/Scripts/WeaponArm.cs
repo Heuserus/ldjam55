@@ -72,8 +72,9 @@ public class WeaponArm : MonoBehaviour
                 weapon.playerCam = playerCam;
                 weapon.currentAmmo = weapon.maxAmmo;
                 weapon.FirePoint = weapon.weaponInstance.transform.Find("FirePoint");
-                //weapon.weaponStatsText = weapon.WeaponStats.GetComponent<TextMeshPro>();
-                //weapon.displayText();
+                weapon.weaponStats = GameObject.Find("WeaponStats");
+                weapon.weaponStatsText = weapon.weaponStats.GetComponent<TextMeshProUGUI>();
+                weapon.displayText();
                 
                 state = WeaponState.ready;
             break;
