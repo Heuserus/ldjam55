@@ -81,6 +81,8 @@ public class Player : MonoBehaviour
 
     public Image healthBar;
 
+    private float cameraBaseY;
+
     Rigidbody rb;
 
     GameMaster gameMaster;
@@ -97,6 +99,7 @@ public class Player : MonoBehaviour
         crouchStartTime = Time.timeAsDouble;
         currentMaxSpeed = moveSpeed;
         cameraPos = transform.Find("CameraPos").gameObject;
+        cameraBaseY = cameraPos.transform.localPosition.y;
     }
 
     // Update is called once per frame
@@ -152,7 +155,7 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyUp(crouchKey)){
             isCrouched = false;
-            cameraPos.transform.position = new Vector3(cameraPos.transform.position.x, cameraPos.transform.position.y + crouchCameraOffset, cameraPos.transform.position.z);
+            cameraPos.transform.localPosition = new Vector3(cameraPos.transform.localPosition.x, cameraBaseY, cameraPos.transform.localPosition.z);
             // If crouch has exited allow player to benefit from grace period as if they just started touching the ground
             if (grounded){
                 groundTouchTime = Time.timeAsDouble;
@@ -183,10 +186,9 @@ public class Player : MonoBehaviour
     }
 
     private void Crouch(){
-        // TODO: camera 
         crouchStartTime = Time.timeAsDouble;
         currentMaxSpeed += crouchSpeedGain;
-        cameraPos.transform.position = new Vector3(cameraPos.transform.position.x, cameraPos.transform.position.y - crouchCameraOffset, cameraPos.transform.position.z);
+        cameraPos.transform.localPosition = new Vector3(cameraPos.transform.localPosition.x, cameraBaseY - crouchCameraOffset, cameraPos.transform.localPosition.z);
     }
 
     private void Dash(){
@@ -245,6 +247,9 @@ public class Player : MonoBehaviour
     public void Damage(int damage){
         health -= damage;
         healthBar.fillAmount = health / maxHealth;
+        if (health/maxHealth < 0.5f){
+            GetComponent<WeaponArm>().setFlaskNext();
+        }
         if(health<=0){
             Die();
         }
