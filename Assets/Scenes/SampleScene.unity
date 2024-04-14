@@ -1999,7 +1999,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b5075f5f0efcc7549958dea11a9bd534, type: 2}
   - {fileID: 11400000, guid: cab8bfa1c3de7ca448f6f2537eb47502, type: 2}
   - {fileID: 11400000, guid: 694b67008d5566d4489e834bc8ab41d1, type: 2}
-  weapon: {fileID: 11400000, guid: 694b67008d5566d4489e834bc8ab41d1, type: 2}
+  - {fileID: 11400000, guid: 4b60463e093c0d147b68b80d6609c39f, type: 2}
+  - {fileID: 11400000, guid: f58ad40da7efbaa419d906ec74eec327, type: 2}
+  weapon: {fileID: 11400000, guid: f58ad40da7efbaa419d906ec74eec327, type: 2}
   playerCam: {fileID: 963194225}
   gameMasterObj: {fileID: 215745781}
   gameMaster: {fileID: 215745782}

@@ -12,18 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5376c31fb84ebd647922202f0a4500be, type: 3}
   m_Name: Alien Gun
   m_EditorClassIdentifier: 
-  name: 
-  maxAmmo: 0
+  name: Alien Gun
+  maxAmmo: 20
   FirePoint: {fileID: 0}
   FireParticles: {fileID: 0}
   HitPointParticles: {fileID: 0}
   currentAmmo: 0
-  shootingTime: 0
+  shootingTime: 0.1
   secondaryTime: 0
-  coolDownTime: 0
+  coolDownTime: 0.1
   secondaryCooldown: 0
-  summoningTime: 0
-  weaponPrefab: {fileID: 0}
+  summoningTime: 1
+  weaponPrefab: {fileID: 6395387465177039638, guid: 8c48abd6cc16eab469d141a6347189e8, type: 3}
   weaponInstance: {fileID: 0}
   model: {fileID: 0}
   playerCam: {fileID: 0}
