@@ -54,9 +54,25 @@ public class WeaponArm : MonoBehaviour
 
     private int[] weaponScores;
 
+    private int flaskIndex;
+
     void Start(){
         gameMaster = gameMasterObj.GetComponent<GameMaster>();
         weaponScores = Enumerable.Repeat(0, weapons.Length).ToArray();
+        
+        flaskIndex = weapons.Select((s, i) => new {i, s})
+            .Where(t => t.s.name ==  "Flask")
+            .Select(t => t.i)
+            .First();
+
+        weaponScores[flaskIndex] = 0;
+
+        // Make sure the weapon is deleted if already set in scene
+        if (weapon != null){
+            weapon.die();
+        }
+
+        weapon = weapons[getNextWeaponIndex()];
 
         if(config.assist){
             flaskCount = 15;
@@ -164,12 +180,14 @@ public class WeaponArm : MonoBehaviour
     }
     public void summonNewWeapon(){
 
-        summoningCircle = Instantiate(summoningCirclePrefab,playerCam.transform);
+        summoningCircle = Instantiate(summoningCirclePrefab, playerCam.transform);
 
         weapon.die();
 
         // Increment all weaponscores by 1
         weaponScores = weaponScores.Select(x => x+1).ToArray();
+
+        weaponScores[flaskIndex] -= 1;
 
         int index = getNextWeaponIndex();
 
@@ -178,6 +196,12 @@ public class WeaponArm : MonoBehaviour
         weaponScores[index] = 0;
 
         summoningTime = weapon.summoningTime;
+    }
+
+    public void setFlaskNext(){
+        Debug.Log("Next weapon is flask!");
+        weaponScores = weaponScores.Select(x => -1).ToArray();
+        weaponScores[flaskIndex] = 50000;
     }
 
     private int getNextWeaponIndex(){
