@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 
@@ -38,9 +40,15 @@ public class WeaponArm : MonoBehaviour
     public KeyCode fire;
     public KeyCode secondary;
 
+    private int[] weaponScores;
+
     void Start(){
         gameMaster = gameMasterObj.GetComponent<GameMaster>();
+        weaponScores = Enumerable.Repeat(0, weapons.Length).ToArray();
     }
+
+
+    // Update is called once per frame
     void Update()
     {
         if(gameMaster.state == GameMaster.GameState.phase1||gameMaster.state == GameMaster.GameState.phase2){
@@ -129,7 +137,34 @@ public class WeaponArm : MonoBehaviour
     }
     public void summonNewWeapon(){
         weapon.die();
-        weapon = weapons[Random.Range(0,weapons.Length)];
+
+        // Increment all weaponscores by 1
+        weaponScores = weaponScores.Select(x => x+1).ToArray();
+
+        int index = getNextWeaponIndex();
+
+        // pseudo random weapon generation
+        weapon = weapons[index];
+        weaponScores[index] = 0;
+
         summoningTime = weapon.summoningTime;
+    }
+
+    private int getNextWeaponIndex(){
+        int total =  weaponScores.Sum();
+
+        int randomValue = UnityEngine.Random.Range(0, total);
+
+        int cursor = 0;
+
+        for (int i = 0; i < weaponScores.Length; i++){
+            cursor += weaponScores[i];
+            if (cursor >= randomValue){
+                return i;
+            }
+        }
+        // This should never happen!
+        Debug.Log("Illegal case for weapon selection! Fallback to element 0");
+        return 0;
     }
 }
