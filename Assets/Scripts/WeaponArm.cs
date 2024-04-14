@@ -58,7 +58,7 @@ public class WeaponArm : MonoBehaviour
 
     void Start(){
         gameMaster = gameMasterObj.GetComponent<GameMaster>();
-        weaponScores = Enumerable.Repeat(0, weapons.Length).ToArray();
+        weaponScores = Enumerable.Repeat(5, weapons.Length).ToArray();
         
         flaskIndex = weapons.Select((s, i) => new {i, s})
             .Where(t => t.s.name ==  "Flask")
@@ -185,9 +185,14 @@ public class WeaponArm : MonoBehaviour
         weapon.die();
 
         // Increment all weaponscores by 1
-        weaponScores = weaponScores.Select(x => x+1).ToArray();
+        weaponScores = weaponScores.Select(x => x+5).ToArray();
 
-        weaponScores[flaskIndex] -= 1;
+        weaponScores[flaskIndex] -= 5;
+
+        for(int i = 0; i < weapons.Length; i++){
+            Debug.Log(weapons[i].name + " " + weaponScores[i]);
+        }
+
 
         int index = getNextWeaponIndex();
 
