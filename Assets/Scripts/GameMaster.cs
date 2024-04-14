@@ -22,6 +22,11 @@ public class GameMaster : MonoBehaviour
     public GameObject boss2Ui;
     public GameObject cutsceneController;
 
+    public float Boss1Health;
+    public float Boss2Health;
+
+    
+
     public enum GameState{
         opening,
         phase1,
@@ -60,9 +65,17 @@ public class GameMaster : MonoBehaviour
 
     public void midScene(){
         spawnBoss2();
+        state = GameState.midScene;
         cutsceneController.GetComponent<CutsceneController>().boss2 = Boss2;
         cutsceneController.GetComponent<CutsceneController>().playScene2();
     }
+
+    public void endScene(){
+        state = GameState.ending;
+        cutsceneController.GetComponent<CutsceneController>().playScene3();
+    }
+
+    
 
     public void startPhase1(){
         player.GetComponent<WeaponArm>().state = WeaponArm.WeaponState.startUp;
@@ -78,13 +91,17 @@ public class GameMaster : MonoBehaviour
         Boss1.GetComponent<BossBehaviour>().gameMasterObj = this.gameObject;
         Boss1.GetComponent<BossBehaviour>().healthBar = BossHealthbar;
         Boss1.GetComponent<BossBehaviour>().ui = boss1Ui;
+        Boss1.GetComponent<BossBehaviour>().maxHealth = Boss1Health;
+        Boss1.GetComponent<BossBehaviour>().phase = 1;
         
     }
     public void spawnBoss2(){
         Boss2 = Instantiate(Boss2Prefab);
-        Boss2.GetComponent<BossBehaviour2>().gameMasterObj = this.gameObject;
-        Boss2.GetComponent<BossBehaviour2>().healthBar = Boss2Healthbar;
-        Boss2.GetComponent<BossBehaviour2>().ui = boss2Ui;
+        Boss2.GetComponent<BossBehaviour>().gameMasterObj = this.gameObject;
+        Boss2.GetComponent<BossBehaviour>().healthBar = Boss2Healthbar;
+        Boss2.GetComponent<BossBehaviour>().ui = boss2Ui;
+        Boss2.GetComponent<BossBehaviour>().maxHealth = Boss2Health;
+        Boss1.GetComponent<BossBehaviour>().phase = 2;
         
     }
 }

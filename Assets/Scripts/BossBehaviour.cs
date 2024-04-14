@@ -18,6 +18,7 @@ public class BossBehaviour : MonoBehaviour
     public Animator animator;
 
     GameMaster gameMaster;
+    public int phase;
 
     
     public void Damage(float Damage){
@@ -44,15 +45,24 @@ public class BossBehaviour : MonoBehaviour
     void Update()
     {
         if(gameMaster.state == GameMaster.GameState.phase1||gameMaster.state == GameMaster.GameState.phase2){
+            if(phase == 1){
 
+            }
         }
         
     }
 
     public void Die(){
-        gameMaster.midScene();
+        
         ui.SetActive(false);
         Destroy(this.gameObject);
+        if(phase == 1){
+            gameMaster.midScene();
+        }
+        else{
+            gameMaster.endScene();
+        }
+        
         
     }
 }
