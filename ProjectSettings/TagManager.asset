@@ -6,6 +6,7 @@ TagManager:
   tags:
   - MageAttack
   - Boss
+  - PlayerAttack
   layers:
   - Default
   - TransparentFX

@@ -69,9 +69,6 @@ PrefabInstance:
       addedObject: {fileID: 2326483025554101459}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 63e7f9f517653f44eb3801246ef4f329, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 3221713417928725536}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 63e7f9f517653f44eb3801246ef4f329, type: 3}
-      insertIndex: -1
       addedObject: {fileID: -1677854180594735330}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 63e7f9f517653f44eb3801246ef4f329, type: 3}
       insertIndex: -1
@@ -116,29 +113,6 @@ MonoBehaviour:
   Boss2MovementSpeed: 15
   Boss2SpellPauseDuration: 5
   Boss2LastSpellTime: 0
---- !u!136 &3221713417928725536
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2719113737852936258}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Radius: 0.6219156
-  m_Height: 3.6420758
-  m_Direction: 1
-  m_Center: {x: -0.010264158, y: 1.3210379, z: 0}
 --- !u!95 &-1677854180594735330
 Animator:
   serializedVersion: 5
@@ -4979,7 +4953,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.020282496
-  m_Height: 0.10950139
+  m_Radius: 0.014166713
+  m_Height: 0.062402524
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0.00047233544, y: -0.0038486866, z: 0.0007420612}

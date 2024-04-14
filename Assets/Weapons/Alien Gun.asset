@@ -29,3 +29,4 @@ MonoBehaviour:
   playerCam: {fileID: 0}
   weaponStats: {fileID: 0}
   weaponStatsText: {fileID: 0}
+  bulletPrefab: {fileID: 2713581751359148183, guid: 503ea61fdba8af84d8ebbac3296c772d, type: 3}
