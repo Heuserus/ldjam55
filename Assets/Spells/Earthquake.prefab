@@ -55,10 +55,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.26485586
-  m_Height: 28.78024
-  m_Direction: 2
-  m_Center: {x: 0, y: 0, z: 0.014059067}
+  m_Radius: 0.23910618
+  m_Height: 29.098244
+  m_Direction: 0
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1099875280008894222
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -328,7 +328,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 3
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -713,7 +713,7 @@ ParticleSystem:
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 270, y: -0, z: 0}
-    m_Scale: {x: 1, y: 14.4153, z: 1}
+    m_Scale: {x: 14.415, y: 1, z: 1}
     placementMode: 0
     m_MeshMaterialIndex: 0
     m_MeshNormalOffset: 0
@@ -850,7 +850,7 @@ ParticleSystem:
           m_RotationOrder: 4
     arc:
       value: 360
-      mode: 2
+      mode: 0
       spread: 0
       speed:
         serializedVersion: 2
@@ -4860,7 +4860,7 @@ ParticleSystemRenderer:
   m_FreeformStretching: 0
   m_RotateWithStretchDirection: 1
   m_VertexStreams: 00010304
-  m_Mesh: {fileID: -5344630866187812440, guid: 63e7f9f517653f44eb3801246ef4f329, type: 3}
+  m_Mesh: {fileID: 289301614986012343, guid: 5b36ab203bfac5a48b541614f0a2a6fe, type: 3}
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
