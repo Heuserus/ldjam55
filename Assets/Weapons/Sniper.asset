@@ -17,12 +17,12 @@ MonoBehaviour:
   FirePoint: {fileID: 0}
   FireParticles: {fileID: 2361262533326023243, guid: 29cac91f65890c3449579c3918b5bc9f, type: 3}
   HitPointParticles: {fileID: 4583716949903507398, guid: 788176a1e8fea6543855c6b737faf861, type: 3}
-  currentAmmo: 5
+  currentAmmo: 0
   shootingTime: 0.1
   secondaryTime: 0.05
   coolDownTime: 0.5
   secondaryCooldown: 0.05
-  summoningTime: 1
+  summoningTime: 2
   weaponPrefab: {fileID: 6395387465177039638, guid: 1de8f18f4689cc1428b8489119aa2d3e, type: 3}
   weaponInstance: {fileID: 0}
   model: {fileID: 0}

@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eef539aaddbfc2146bbef608984ded1c, type: 3}
+  m_Name: Flask
+  m_EditorClassIdentifier: 
+  name: Flask
+  maxAmmo: 1
+  FirePoint: {fileID: 0}
+  FireParticles: {fileID: 0}
+  HitPointParticles: {fileID: 0}
+  currentAmmo: 0
+  shootingTime: 2
+  secondaryTime: 1
+  coolDownTime: 1
+  secondaryCooldown: 1
+  summoningTime: 1
+  weaponPrefab: {fileID: 6395387465177039638, guid: ae5d6ff193237944ebcae7ed50e9deff, type: 3}
+  weaponInstance: {fileID: 0}
+  model: {fileID: 0}
+  playerCam: {fileID: 0}
+  weaponStats: {fileID: 0}
+  weaponStatsText: {fileID: 0}
+  heal: 5

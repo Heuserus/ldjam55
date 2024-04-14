@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WeaponArm : MonoBehaviour
 {
@@ -23,6 +24,14 @@ public class WeaponArm : MonoBehaviour
     public GameObject gameMasterObj;
     public GameMaster gameMaster;
 
+    public GameObject summoningCircle;
+
+    public GameObject summoningCirclePrefab;
+
+    public Config config;
+
+    
+
     public enum WeaponState {
         ready,
         coolDown,
@@ -40,11 +49,22 @@ public class WeaponArm : MonoBehaviour
     public KeyCode fire;
     public KeyCode secondary;
 
+    public int flaskCount = 0;
+    public GameObject FlaskUI;
+
     private int[] weaponScores;
 
     void Start(){
         gameMaster = gameMasterObj.GetComponent<GameMaster>();
         weaponScores = Enumerable.Repeat(0, weapons.Length).ToArray();
+
+        if(config.assist){
+            flaskCount = 15;
+        }
+        else{
+            flaskCount = 5;
+        }
+        
     }
 
 
@@ -55,7 +75,7 @@ public class WeaponArm : MonoBehaviour
         switch(state){
             case WeaponState.ready:
             
-            if(Input.GetKeyDown(fire)){
+            if(Input.GetKey(fire)){
                 
                 if(weapon.currentAmmo== 0){
                     summonNewWeapon();
@@ -133,6 +153,7 @@ public class WeaponArm : MonoBehaviour
                     summoningTime -= Time.deltaTime;
                 }
                 else{
+                    Destroy(summoningCircle);
                     state = WeaponState.startUp;
                 } 
             break;
@@ -142,6 +163,9 @@ public class WeaponArm : MonoBehaviour
         }
     }
     public void summonNewWeapon(){
+
+        summoningCircle = Instantiate(summoningCirclePrefab,playerCam.transform);
+
         weapon.die();
 
         // Increment all weaponscores by 1
