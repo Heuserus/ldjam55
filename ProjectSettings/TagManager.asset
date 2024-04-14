@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - MageAttack
+  - Boss
   layers:
   - Default
   - TransparentFX

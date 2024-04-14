@@ -38,7 +38,12 @@ public class Shotgun : Weapon
                 Destroy(a,1);
                 Destroy(b,2);
 
-                BossBehaviour boss = hit.transform.GetComponent<BossBehaviour>();
+                // We hit nothing boys
+                if (hit.transform.tag != "Boss"){
+                    return;
+                }
+
+                BossBehaviour boss = FindObjectOfType<BossBehaviour>();
 
                 if(boss != null){
                     boss.Damage(calculateDamageFalloff(shotDistance));
