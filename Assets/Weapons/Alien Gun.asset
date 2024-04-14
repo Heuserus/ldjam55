@@ -9,24 +9,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c81e1fac8b6b65c48967955241dd48a7, type: 3}
-  m_Name: AK
+  m_Script: {fileID: 11500000, guid: 5376c31fb84ebd647922202f0a4500be, type: 3}
+  m_Name: Alien Gun
   m_EditorClassIdentifier: 
-  name: Ak-47
-  maxAmmo: 30
+  name: 
+  maxAmmo: 0
   FirePoint: {fileID: 0}
-  FireParticles: {fileID: 2361262533326023243, guid: 29cac91f65890c3449579c3918b5bc9f, type: 3}
-  HitPointParticles: {fileID: 4583716949903507398, guid: 788176a1e8fea6543855c6b737faf861, type: 3}
+  FireParticles: {fileID: 0}
+  HitPointParticles: {fileID: 0}
   currentAmmo: 0
-  shootingTime: 0.05
+  shootingTime: 0
   secondaryTime: 0
-  coolDownTime: 0.05
+  coolDownTime: 0
   secondaryCooldown: 0
-  summoningTime: 1
-  weaponPrefab: {fileID: 6395387465177039638, guid: bc4b760ea4524f74a9454ebbf47c97c2, type: 3}
+  summoningTime: 0
+  weaponPrefab: {fileID: 0}
   weaponInstance: {fileID: 0}
   model: {fileID: 0}
   playerCam: {fileID: 0}
   weaponStats: {fileID: 0}
   weaponStatsText: {fileID: 0}
-  Damage: 1
