@@ -19,18 +19,19 @@ public class WeaponArm : MonoBehaviour
 
     public GameObject playerCam;
 
-    enum WeaponState {
+    public enum WeaponState {
         ready,
         coolDown,
         startUp,
         shooting,
         secondary,
         secondaryCooldown,
-        summoning
+        summoning,
+        none
 
     }
 
-    WeaponState state = WeaponState.startUp;
+    public WeaponState state = WeaponState.none;
 
     public KeyCode fire;
     public KeyCode secondary;
@@ -113,7 +114,11 @@ public class WeaponArm : MonoBehaviour
                 if(summoningTime > 0){
                     summoningTime -= Time.deltaTime;
                 }
-                else state = WeaponState.startUp;
+                else{
+                    state = WeaponState.startUp;
+                } 
+            break;
+            case WeaponState.none:
             break;
         }
     }

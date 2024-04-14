@@ -3,11 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BossBehaviour : MonoBehaviour
+public class BossBehaviour2 : MonoBehaviour
 {
-
-    
-    public float maxHealth = 10f;
+   public float maxHealth = 10f;
     public float health;
     public Image healthBar;
 
@@ -49,9 +47,7 @@ public class BossBehaviour : MonoBehaviour
     }
 
     public void Die(){
-        gameMaster.midScene();
         ui.SetActive(false);
         Destroy(this.gameObject);
-        
     }
 }

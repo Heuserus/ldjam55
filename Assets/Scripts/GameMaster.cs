@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,7 +15,14 @@ public class GameMaster : MonoBehaviour
 
     public Image BossHealthbar;
 
-    enum GameState{
+    public Image Boss2Healthbar;
+    
+    public GameObject boss1Ui;
+
+    public GameObject boss2Ui;
+    public GameObject cutsceneController;
+
+    public enum GameState{
         opening,
         phase1,
         midScene,
@@ -24,11 +32,12 @@ public class GameMaster : MonoBehaviour
         paused,
     }
 
-    GameState state = GameState.opening;
+    public GameState state = GameState.opening;
     // Start is called before the first frame update
     void Start()
     {
-        spawnBoss1();
+        
+        doOpening();
         
     }
 
@@ -43,10 +52,39 @@ public class GameMaster : MonoBehaviour
         
     }
 
-    private void spawnBoss1(){
+    private void doOpening(){
+        spawnBoss1();
+        cutsceneController.GetComponent<CutsceneController>().boss1 = Boss1;
+        cutsceneController.GetComponent<CutsceneController>().playScene1();
+    }
+
+    public void midScene(){
+        spawnBoss2();
+        cutsceneController.GetComponent<CutsceneController>().boss2 = Boss2;
+        cutsceneController.GetComponent<CutsceneController>().playScene2();
+    }
+
+    public void startPhase1(){
+        player.GetComponent<WeaponArm>().state = WeaponArm.WeaponState.startUp;
+        state = GameState.phase1;
+    }
+    public void startPhase2(){
+        //player.GetComponent<WeaponArm>().state = WeaponArm.WeaponState.startUp;
+        state = GameState.phase2;
+    }
+
+    public void spawnBoss1(){
         Boss1 = Instantiate(Boss1Prefab);
-        Boss1.GetComponent<BossBehaviour>().gameMaster = this.gameObject;
+        Boss1.GetComponent<BossBehaviour>().gameMasterObj = this.gameObject;
         Boss1.GetComponent<BossBehaviour>().healthBar = BossHealthbar;
+        Boss1.GetComponent<BossBehaviour>().ui = boss1Ui;
+        
+    }
+    public void spawnBoss2(){
+        Boss2 = Instantiate(Boss2Prefab);
+        Boss2.GetComponent<BossBehaviour2>().gameMasterObj = this.gameObject;
+        Boss2.GetComponent<BossBehaviour2>().healthBar = Boss2Healthbar;
+        Boss2.GetComponent<BossBehaviour2>().ui = boss2Ui;
         
     }
 }

@@ -9,6 +9,8 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
 
+    public GameObject gameMasterObj;
+
     [Header("Movement")]
     public float moveSpeed;
     public float jumpForce;
@@ -80,9 +82,12 @@ public class Player : MonoBehaviour
     public Image healthBar;
 
     Rigidbody rb;
+
+    GameMaster gameMaster;
     // Start is called before the first frame update
     void Start()
     {
+        gameMaster = gameMasterObj.GetComponent<GameMaster>();
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
         readyToJump = true;
@@ -97,7 +102,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
-
+        if(gameMaster.state == GameMaster.GameState.phase1||gameMaster.state == GameMaster.GameState.phase2){
         bool nowGrounded = Physics.Raycast(transform.position, Vector3.down,playerHeight * 0.5f +0.2f, whatIsGround);
         if (!grounded && nowGrounded){
             groundTouchTime = Time.timeAsDouble;
@@ -112,11 +117,14 @@ public class Player : MonoBehaviour
         else{
             rb.drag = 0;
         }
+        }
         
     }
 
     private void FixedUpdate(){
+        if(gameMaster.state == GameMaster.GameState.phase1||gameMaster.state == GameMaster.GameState.phase2){
         MovePlayer();
+        }
     }
 
     private void MyInput()
@@ -211,7 +219,7 @@ public class Player : MonoBehaviour
 
         Vector3 flatVel = new Vector3(rb.velocity.x,0f,rb.velocity.z);
 
-        Debug.Log("Current Player Speed: " + flatVel.magnitude);
+        //Debug.Log("Current Player Speed: " + flatVel.magnitude);
 
         if (isDashing){
             return;

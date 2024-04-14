@@ -12,12 +12,17 @@ public class PlayerCam : MonoBehaviour
     float xRotation;
     float yRotation;
 
+    public GameObject gameMasterObj;
+    GameMaster gameMaster;
+
     private void Start(){
+          gameMaster = gameMasterObj.GetComponent<GameMaster>();
           Cursor.lockState = CursorLockMode.Locked;
           Cursor.visible = false;
     }
 
     public void Update(){
+        if(gameMaster.state == GameMaster.GameState.phase1||gameMaster.state == GameMaster.GameState.phase2){
         float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensX;
         float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensY;
 
@@ -26,6 +31,7 @@ public class PlayerCam : MonoBehaviour
         xRotation = Mathf.Clamp(xRotation, -90f,90f);
         transform.rotation = Quaternion.Euler(xRotation,yRotation,0);
         orientation.rotation = Quaternion.Euler(0, yRotation,0);
+    }
     }
 
 }
