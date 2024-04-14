@@ -28,6 +28,8 @@ public class GameMaster : MonoBehaviour
     public KeyCode pauseKey;
     public GameObject pauseMenu;
 
+    public GameObject playerCam;
+
     
 
     public enum GameState{
@@ -76,6 +78,7 @@ public class GameMaster : MonoBehaviour
     }
 
     public void midScene(){
+        
         spawnBoss2();
         state = GameState.midScene;
         cutsceneController.GetComponent<CutsceneController>().boss2 = Boss2;
@@ -115,5 +118,10 @@ public class GameMaster : MonoBehaviour
         Boss2.GetComponent<BossBehaviour>().maxHealth = Boss2Health;
         Boss1.GetComponent<BossBehaviour>().phase = 2;
         
+    }
+
+    public void cleanUp(){
+        GameObject.Find("Zoom").GetComponent<Image>().enabled = false;
+        playerCam.GetComponent<Camera>().fieldOfView =60;
     }
 }

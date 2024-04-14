@@ -15,6 +15,9 @@ public class Weapon : ScriptableObject
 
     public Transform FirePoint;
 
+    public GameObject FireParticles;
+    public GameObject HitPointParticles;
+
     public int currentAmmo;
 
     public float shootingTime; // 

@@ -83,6 +83,12 @@ public class WeaponArm : MonoBehaviour
                 else{
                     state = WeaponState.ready;
                 }
+                if(Input.GetKeyDown(secondary)){
+                
+                weapon.secondary();
+                state = WeaponState.secondary;
+                secondaryTime = weapon.secondaryTime;
+                }
             break;
             case WeaponState.startUp:
                 weapon.weaponInstance = Instantiate(weapon.weaponPrefab,playerCam.transform);

@@ -10,8 +10,7 @@ using UnityEngine;
 public class Shotgun : Weapon
 {
 
-    public GameObject FireParticles;
-    public GameObject HitPointParticles;
+    
     int charges = 0;
 
     public float spread = 0.5f;
@@ -29,7 +28,7 @@ public class Shotgun : Weapon
             changeAmmo(-1);
             model.GetComponent<Animator>().Play("Armature|Shoot");
             RaycastHit hit;
-            if(Physics.SphereCast(FirePoint.position, spread, playerCam.transform.TransformDirection(Vector3.forward), out hit, maxRange)){
+            if(Physics.SphereCast(playerCam.transform.position, spread, playerCam.transform.TransformDirection(Vector3.forward), out hit, maxRange)){
 
                 float shotDistance = hit.distance;
                 Debug.DrawRay(FirePoint.position, playerCam.transform.TransformDirection(Vector3.forward) * hit.distance,Color.yellow);

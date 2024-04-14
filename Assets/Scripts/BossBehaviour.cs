@@ -53,6 +53,7 @@ public class BossBehaviour : MonoBehaviour
     }
 
     public void Die(){
+        gameMaster.cleanUp();
         
         ui.SetActive(false);
         Destroy(this.gameObject);
