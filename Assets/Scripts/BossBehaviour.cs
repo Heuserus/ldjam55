@@ -15,7 +15,7 @@ public class BossBehaviour : MonoBehaviour
 
     public Animator animator;
 
-    public void Damage(int Damage){
+    public void Damage(float Damage){
         health -= Damage;
         healthBar.fillAmount = health / maxHealth;
         

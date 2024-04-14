@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Shotgun
   maxAmmo: 12
   FirePoint: {fileID: 0}
-  currentAmmo: 10
+  currentAmmo: 12
   shootingTime: 0.1
   secondaryTime: 0.2
   coolDownTime: 0.1
@@ -29,3 +29,7 @@ MonoBehaviour:
   weaponStatsText: {fileID: 0}
   FireParticles: {fileID: 2361262533326023243, guid: 29cac91f65890c3449579c3918b5bc9f, type: 3}
   HitPointParticles: {fileID: 4583716949903507398, guid: 788176a1e8fea6543855c6b737faf861, type: 3}
+  spread: 2
+  maxRange: 25
+  damageFallofStartDistance: 2
+  BaseDamage: 3

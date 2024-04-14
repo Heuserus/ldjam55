@@ -211,7 +211,7 @@ public class Player : MonoBehaviour
 
         Vector3 flatVel = new Vector3(rb.velocity.x,0f,rb.velocity.z);
 
-        Debug.Log("Current Player Speed: " + flatVel.magnitude);
+        //Debug.Log("Current Player Speed: " + flatVel.magnitude);
 
         if (isDashing){
             return;
