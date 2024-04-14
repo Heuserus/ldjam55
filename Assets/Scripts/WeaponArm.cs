@@ -18,6 +18,8 @@ public class WeaponArm : MonoBehaviour
     float summoningTime;
 
     public GameObject playerCam;
+    public GameObject gameMasterObj;
+    public GameMaster gameMaster;
 
     public enum WeaponState {
         ready,
@@ -36,10 +38,12 @@ public class WeaponArm : MonoBehaviour
     public KeyCode fire;
     public KeyCode secondary;
 
-    // Update is called once per frame
+    void Start(){
+        gameMaster = gameMasterObj.GetComponent<GameMaster>();
+    }
     void Update()
     {
-        
+        if(gameMaster.state == GameMaster.GameState.phase1||gameMaster.state == GameMaster.GameState.phase2){
         switch(state){
             case WeaponState.ready:
             
@@ -120,6 +124,7 @@ public class WeaponArm : MonoBehaviour
             break;
             case WeaponState.none:
             break;
+        }
         }
     }
     public void summonNewWeapon(){

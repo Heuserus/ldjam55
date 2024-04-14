@@ -25,6 +25,9 @@ public class GameMaster : MonoBehaviour
     public float Boss1Health;
     public float Boss2Health;
 
+    public KeyCode pauseKey;
+    public GameObject pauseMenu;
+
     
 
     public enum GameState{
@@ -49,8 +52,17 @@ public class GameMaster : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         switch(state){
-            case GameState.opening:
+            case GameState.phase1:
+            case GameState.phase2:
+            if(Input.GetKeyDown(pauseKey)){
+                Cursor.lockState = CursorLockMode.Confined;
+                Cursor.visible = true;
+                pauseMenu.SetActive(true);
+                pauseMenu.GetComponent<PauseMenu>().setResumeState(state);
+                state = GameState.paused;
+            }
             break;
 
         }
