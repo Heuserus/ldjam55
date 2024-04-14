@@ -63,7 +63,7 @@ public class Shotgun : Weapon
 
     public override void secondary()
     {
-       model.GetComponent<Animator>().Play("Armature|Pump");
+       base.secondary();
     }
 
 }
