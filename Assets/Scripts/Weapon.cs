@@ -55,8 +55,4 @@ public class Weapon : ScriptableObject
     public void die(){
         Destroy(weaponInstance);
     }
-
-    
-
-    
 }
