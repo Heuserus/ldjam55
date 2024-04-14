@@ -30,7 +30,7 @@ public class AK : Weapon
                 BossBehaviour boss = FindObjectOfType<BossBehaviour>();
 
                 if(boss != null){
-                    boss.Damage(1);
+                    boss.Damage(1f);
                 }
             }
         }
