@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     public GameObject settingsobj;
+    public GameObject tutorialobj;
     public void play(){
         SceneManager.LoadScene(1);
     }
@@ -14,6 +15,10 @@ public class MainMenu : MonoBehaviour
     }
     public void settings(){
         settingsobj.SetActive(true);
+        this.gameObject.SetActive(false);
+    }
+    public void tutorial(){
+        tutorialobj.SetActive(true);
         this.gameObject.SetActive(false);
     }
 }
