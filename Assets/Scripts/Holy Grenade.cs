@@ -21,6 +21,8 @@ public class HolyGrenade : MonoBehaviour
 
     public float Damage;
 
+    public AudioClip HitSound;
+
     public void Start(){
         gameMaster = GameObject.Find("GameMaster").GetComponent<GameMaster>();
         GetComponent<BoxCollider>().enabled = false;
@@ -55,6 +57,16 @@ public class HolyGrenade : MonoBehaviour
             return;
         }
 
+        if (GetComponent<AudioSource>() != null){
+            return;
+        }
+
+        AudioSource audioSource = gameObject.AddComponent<AudioSource>();
+
+        audioSource.clip = HitSound;
+
+        audioSource.Play();
+
         GameObject c = Instantiate(DecalParticles, transform.position, Quaternion.identity);
         Destroy(c, 1);
 
@@ -66,9 +78,8 @@ public class HolyGrenade : MonoBehaviour
                     explode();
                 }
         }
-
-        
     }
+
     void explode(){
         Debug.Log("BOOOOOM");
         explosionInstance = Instantiate(explosion,transform.position, Quaternion.identity);

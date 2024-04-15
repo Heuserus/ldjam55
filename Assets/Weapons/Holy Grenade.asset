@@ -24,7 +24,7 @@ MonoBehaviour:
   coolDownTime: 1
   secondaryCooldown: 1
   summoningTime: 1
-  weaponPrefab: {fileID: 0}
+  weaponPrefab: {fileID: 2465683809262811739, guid: b9d95084e8f8d10469d9c531c9e429e1, type: 3}
   weaponInstance: {fileID: 0}
   model: {fileID: 0}
   playerCam: {fileID: 0}
