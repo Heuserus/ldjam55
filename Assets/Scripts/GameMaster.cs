@@ -74,10 +74,7 @@ public class GameMaster : MonoBehaviour
                 state = GameState.paused;
             }
             break;
-            
-
         }
-        
     }
 
     public void playerDeath(){
