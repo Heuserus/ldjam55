@@ -12669,6 +12669,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4b60463e093c0d147b68b80d6609c39f, type: 2}
   - {fileID: 11400000, guid: f58ad40da7efbaa419d906ec74eec327, type: 2}
   - {fileID: 11400000, guid: 4bb94d03fbec4274ea86d4f6e4f7ba72, type: 2}
+  - {fileID: 11400000, guid: 5ca875bebdfe7bb4a8f6ba6fa12745ed, type: 2}
+  - {fileID: 11400000, guid: 552d885e83a5bde40b5df0414c5dd12b, type: 2}
   weapon: {fileID: 11400000, guid: f58ad40da7efbaa419d906ec74eec327, type: 2}
   playerCam: {fileID: 963194225}
   gameMasterObj: {fileID: 215745781}
