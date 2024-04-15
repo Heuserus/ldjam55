@@ -84,7 +84,7 @@ public class GameMaster : MonoBehaviour
 
     public void midScene(){
         playerModel.SetActive(true);
-        spawnBoss2();   
+        //spawnBoss2();   
         state = GameState.midScene;
         //cutsceneController.GetComponent<CutsceneController>().boss2 = Boss2;
         cutsceneController.GetComponent<CutsceneController>().playScene2();
@@ -125,7 +125,7 @@ public class GameMaster : MonoBehaviour
         
     }
     public void spawnBoss2(){
-        if(Boss1 == null){
+        if(Boss2 == null){
             Boss2 = Instantiate(Boss2Prefab);
             Boss2.GetComponent<BossBehaviour>().gameMasterObj = this.gameObject;
             Boss2.GetComponent<BossBehaviour>().healthBar = Boss2Healthbar;
@@ -133,7 +133,7 @@ public class GameMaster : MonoBehaviour
 
             Boss2.GetComponent<BossBehaviour>().maxHealth = config.assist ? Boss2Health*0.6f : Boss2Health;
             Boss2.GetComponent<BossBehaviour>().phase = 2;
-            cutsceneController.GetComponent<CutsceneController>().boss1 = Boss2;
+            cutsceneController.GetComponent<CutsceneController>().boss2 = Boss2;
         }
         
         

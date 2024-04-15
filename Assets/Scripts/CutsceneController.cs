@@ -96,6 +96,7 @@ public class CutsceneController : MonoBehaviour
             cutsceneCam.enabled = false;
             gM.startPhase1();
             state = sceneState.none;
+            cutsceneCam.GetComponent<CutsceneCamera>().cleanUp();
             
             
         
@@ -116,6 +117,7 @@ public class CutsceneController : MonoBehaviour
         cutsceneCam.enabled = false;
         gM.startPhase2();
         state = sceneState.none;
+        cutsceneCam.GetComponent<CutsceneCamera>().cleanUp();
         
     }
     public void endCutscene3(){
@@ -126,6 +128,7 @@ public class CutsceneController : MonoBehaviour
         state = sceneState.none;
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = true;
+        cutsceneCam.GetComponent<CutsceneCamera>().cleanUp();
         
     }
 
