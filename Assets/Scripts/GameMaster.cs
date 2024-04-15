@@ -33,7 +33,7 @@ public class GameMaster : MonoBehaviour
 
     public GameObject playerModel;
 
-    
+    private AudioSource audioSource;
 
     public enum GameState{
         opening,
@@ -49,7 +49,7 @@ public class GameMaster : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        audioSource = GetComponent<AudioSource>(); 
         doOpening();
         
     }
@@ -75,6 +75,7 @@ public class GameMaster : MonoBehaviour
     }
 
     private void doOpening(){
+        audioSource.Stop();
         playerModel.SetActive(true);
         //spawnBoss1();
         cutsceneController.GetComponent<CutsceneController>().boss1 = Boss1;
@@ -98,6 +99,7 @@ public class GameMaster : MonoBehaviour
     
 
     public void startPhase1(){
+        audioSource.Play();
         playerModel.SetActive(false);
         player.GetComponent<WeaponArm>().state = WeaponArm.WeaponState.startUp;
         state = GameState.phase1;
