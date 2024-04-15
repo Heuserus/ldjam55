@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using JetBrains.Annotations;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -37,6 +38,10 @@ public class GameMaster : MonoBehaviour
 
     public GameObject DeathScreen;
 
+    public GameObject RunTimeDisplay;
+
+    private float currentRunDuration =0f;
+
     public enum GameState{
         opening,
         phase1,
@@ -55,6 +60,7 @@ public class GameMaster : MonoBehaviour
         audioSource.loop = true;
         audioSource.volume = 0.05f;
         AudioListener.volume = config.volume;
+        currentRunDuration = 0f;
         doOpening();
         
     }
@@ -66,6 +72,7 @@ public class GameMaster : MonoBehaviour
         switch(state){
             case GameState.phase1:
             case GameState.phase2:
+            currentRunDuration += Time.deltaTime;
             if(Input.GetKeyDown(pauseKey)){
                 Cursor.lockState = CursorLockMode.Confined;
                 Cursor.visible = true;
@@ -82,7 +89,7 @@ public class GameMaster : MonoBehaviour
         DeathScreen.SetActive(true);
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = true;
-
+        currentRunDuration = 0f;
     }
 
     private void doOpening(){
@@ -148,6 +155,12 @@ public class GameMaster : MonoBehaviour
         }
         
         
+    }
+
+    public void DisplayFinishedRunTime(){
+        System.TimeSpan timeSpan = System.TimeSpan.FromSeconds(currentRunDuration);
+        string timeText = string.Format("{0:D2}:{1:D2}:{2:D3}", timeSpan.Minutes, timeSpan.Seconds, timeSpan.Milliseconds);
+        RunTimeDisplay.GetComponent<TextMeshProUGUI>().text = timeText;
     }
 
     public void cleanUp(){

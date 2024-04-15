@@ -122,8 +122,8 @@ public class CutsceneController : MonoBehaviour
     }
     public void endCutscene3(){
         animator.Play("Default");
-        
         WinScreen.SetActive(true);
+        gameMaster.GetComponent<GameMaster>().DisplayFinishedRunTime(); 
         setBarsActive(false);
         state = sceneState.none;
         Cursor.lockState = CursorLockMode.Confined;
