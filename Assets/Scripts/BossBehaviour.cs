@@ -39,9 +39,9 @@ public class BossBehaviour : MonoBehaviour
 
     private string[] ActionChoicesBoss1 = new string[]{"Teleport", "MeteorShower", "FireBall"};
 
-    private string[] ActionChoicesBoss2 = new string[]{"Earthquake", "AcidCloud"};
+    private string[] ActionChoicesBoss2 = new string[]{"Earthquake", "AcidCloud", "FireBall"};
 
-    private int[] ActionWeightsBoss2 = new int[]{500, 5};
+    private int[] ActionWeightsBoss2 = new int[]{5, 5, 5};
 
     private int[] ActionWeightsBoss1 = new int[]{2,5,5};
 
@@ -50,6 +50,8 @@ public class BossBehaviour : MonoBehaviour
     public GameObject FireBallPrefab;
 
     public GameObject EarthQuakePrefab;
+
+    public GameObject AcidCloudPrefab;
 
     private ParticleSystem particleSystem;
 
@@ -61,6 +63,13 @@ public class BossBehaviour : MonoBehaviour
 
     public double Boss2LastSpellTime;
 
+    public AudioClip[] Attack0VoiceLines;
+
+    public AudioClip[] Attack1VoiceLines;
+
+    public AudioClip[] Attack2VoiceLines;
+
+    public AudioSource audioSource;
 
     public void Damage(float Damage){
         health -= Damage;
@@ -145,8 +154,27 @@ public class BossBehaviour : MonoBehaviour
         particleSystem.Stop();
     }
 
+    public void PlayAttack0SFX(){
+        audioSource.Stop();
+        audioSource.clip = Attack0VoiceLines[UnityEngine.Random.Range(0, Attack0VoiceLines.Length)];
+        audioSource.Play();
+    }
+
+    public void PlayAttack1SFX(){
+        audioSource.Stop();
+        audioSource.clip = Attack1VoiceLines[UnityEngine.Random.Range(0, Attack1VoiceLines.Length)];
+        audioSource.Play();
+    }
+
+    public void PlayAttack2SFX(){
+        audioSource.Stop();
+        audioSource.clip = Attack2VoiceLines[UnityEngine.Random.Range(0, Attack1VoiceLines.Length)];
+        audioSource.Play();
+    }
+
     public void CastMeteorShower(){
         Debug.Log("Meteor Shower casted!");
+
         int meteorAmount = UnityEngine.Random.Range(5,8);
         for (int i = 0; i <= meteorAmount; i++){
             GameObject.Instantiate(MeteorPrefab, new Vector3(UnityEngine.Random.Range(-teleportRange, teleportRange), 30, UnityEngine.Random.Range(-teleportRange, teleportRange)), Quaternion.identity);
@@ -197,6 +225,11 @@ public class BossBehaviour : MonoBehaviour
                         animator.Play("Armature|Cast4");
                         isInCast = true;
                         break;
+                    case "FireBall":
+                        // Fireball
+                        animator.Play("Armature|Cast1");
+                        isInCast = true; 
+                        break;
                 }
 
             } else{
@@ -228,6 +261,8 @@ public class BossBehaviour : MonoBehaviour
 
     public void CastAcidCloud(){
         Debug.Log("Acid Cloud");
+        GameObject acidCloud = GameObject.Instantiate(AcidCloudPrefab);
+        acidCloud.transform.position = new Vector3(transform.position.x, 15f, transform.position.z) + transform.forward * 0.3f;
     }
 
     public void Die(){

@@ -15,9 +15,9 @@ public class Shotgun : Weapon
 
     public float spread = 0.5f;
 
-    public float maxRange = 20;
+    public float maxRange = 30;
 
-    public float damageFallofStartDistance = 2f;
+    public float damageFallofStartDistance = 5f;
 
     public int BaseDamage = 3;
 
