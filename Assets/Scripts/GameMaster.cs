@@ -78,7 +78,7 @@ public class GameMaster : MonoBehaviour
         audioSource.Stop();
         playerModel.SetActive(true);
         //spawnBoss1();
-        cutsceneController.GetComponent<CutsceneController>().boss1 = Boss1;
+        
         cutsceneController.GetComponent<CutsceneController>().playScene1();
     }
 
@@ -86,7 +86,7 @@ public class GameMaster : MonoBehaviour
         playerModel.SetActive(true);
         spawnBoss2();   
         state = GameState.midScene;
-        cutsceneController.GetComponent<CutsceneController>().boss2 = Boss2;
+        //cutsceneController.GetComponent<CutsceneController>().boss2 = Boss2;
         cutsceneController.GetComponent<CutsceneController>().playScene2();
     }
 
@@ -99,6 +99,7 @@ public class GameMaster : MonoBehaviour
     
 
     public void startPhase1(){
+        Debug.Log("Start Phase 1");
         audioSource.Play();
         playerModel.SetActive(false);
         player.GetComponent<WeaponArm>().state = WeaponArm.WeaponState.startUp;
@@ -111,22 +112,30 @@ public class GameMaster : MonoBehaviour
     }
 
     public void spawnBoss1(){
-        Boss1 = Instantiate(Boss1Prefab);
-        Boss1.GetComponent<BossBehaviour>().gameMasterObj = this.gameObject;
-        Boss1.GetComponent<BossBehaviour>().healthBar = BossHealthbar;
-        Boss1.GetComponent<BossBehaviour>().ui = boss1Ui;
-        Boss1.GetComponent<BossBehaviour>().maxHealth = config.assist ? Boss1Health*0.6f : Boss1Health;
-        Boss1.GetComponent<BossBehaviour>().phase = 1;
+        if(Boss1 == null){
+            Boss1 = Instantiate(Boss1Prefab);
+            Boss1.GetComponent<BossBehaviour>().gameMasterObj = this.gameObject;
+            Boss1.GetComponent<BossBehaviour>().healthBar = BossHealthbar;
+            Boss1.GetComponent<BossBehaviour>().ui = boss1Ui;
+            Boss1.GetComponent<BossBehaviour>().maxHealth = config.assist ? Boss1Health*0.6f : Boss1Health;
+            Boss1.GetComponent<BossBehaviour>().phase = 1;
+            cutsceneController.GetComponent<CutsceneController>().boss1 = Boss1;
+        }
+        
         
     }
     public void spawnBoss2(){
-        Boss2 = Instantiate(Boss2Prefab);
-        Boss2.GetComponent<BossBehaviour>().gameMasterObj = this.gameObject;
-        Boss2.GetComponent<BossBehaviour>().healthBar = Boss2Healthbar;
-        Boss2.GetComponent<BossBehaviour>().ui = boss2Ui;
+        if(Boss1 == null){
+            Boss2 = Instantiate(Boss2Prefab);
+            Boss2.GetComponent<BossBehaviour>().gameMasterObj = this.gameObject;
+            Boss2.GetComponent<BossBehaviour>().healthBar = Boss2Healthbar;
+            Boss2.GetComponent<BossBehaviour>().ui = boss2Ui;
 
-        Boss2.GetComponent<BossBehaviour>().maxHealth = config.assist ? Boss2Health*0.6f : Boss2Health;
-        Boss2.GetComponent<BossBehaviour>().phase = 2;
+            Boss2.GetComponent<BossBehaviour>().maxHealth = config.assist ? Boss2Health*0.6f : Boss2Health;
+            Boss2.GetComponent<BossBehaviour>().phase = 2;
+            cutsceneController.GetComponent<CutsceneController>().boss1 = Boss2;
+        }
+        
         
     }
 

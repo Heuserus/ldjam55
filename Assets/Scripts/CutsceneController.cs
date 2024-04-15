@@ -86,39 +86,47 @@ public class CutsceneController : MonoBehaviour
     }
 
     public void endCutscene1(){
-        animator.StopPlayback();
-
-        if(gM.Boss1 ==  null){
+        animator.Play("Default");
+        
             gM.spawnBoss1();
-        }
-        setGameUIActive(true);
-        setBarsActive(false);
-        playerCam.enabled = true;
-        cutsceneCam.enabled = false;
-        gM.startPhase1();
-        state = sceneState.none;
+            
+            setGameUIActive(true);
+            setBarsActive(false);
+            playerCam.enabled = true;
+            cutsceneCam.enabled = false;
+            gM.startPhase1();
+            state = sceneState.none;
+            
+            
+        
+
+        
+        
         
 
     }
     public void endCutscene2(){
-        animator.StopPlayback();
-        if(gM.Boss2 ==  null){
-            gM.spawnBoss2();
-        }
+        animator.Play("Default");
+        
+        gM.spawnBoss2();
+        
         setGameUIActive(true);
         setBarsActive(false);
         playerCam.enabled = true;
         cutsceneCam.enabled = false;
         gM.startPhase2();
         state = sceneState.none;
+        
     }
     public void endCutscene3(){
-        animator.StopPlayback();
+        animator.Play("Default");
+        
         WinScreen.SetActive(true);
         setBarsActive(false);
         state = sceneState.none;
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = true;
+        
     }
 
     void Update(){
