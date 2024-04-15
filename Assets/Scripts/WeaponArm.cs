@@ -210,6 +210,10 @@ public class WeaponArm : MonoBehaviour
     }
 
     public void setFlaskNext(){
+        // Check if player is already holding a flask and has not used it yet
+        if (weapon.name == "Flask" && weapon.currentAmmo > 0){
+            return;
+        }
         if(!flaskInQeue && flaskCount>0){
             Debug.Log("Next weapon is flask!");
         flaskCount -= 1;
