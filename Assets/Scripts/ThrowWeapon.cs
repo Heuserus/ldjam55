@@ -24,7 +24,13 @@ public class ThrowWeapon : Weapon
             // model.GetComponent<Animator>().Play("Armature|Shoot");
 
             model.transform.parent = null;
-            model.GetComponent<ThrowableBehaviour>().yeet(playerCam.transform.TransformDirection(Vector3.forward).normalized);
+            if(model.GetComponent<ThrowableBehaviour>()){
+                model.GetComponent<ThrowableBehaviour>().yeet(playerCam.transform.TransformDirection(Vector3.forward).normalized);
+            }
+            else{
+                model.GetComponent<HolyGrenade>().yeet(playerCam.transform.TransformDirection(Vector3.forward).normalized);
+            }
+            
         }
     }
 
