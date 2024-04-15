@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -255,6 +255,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BobbingRange: 1.5
   speed: 0.06
+  VoiceLines:
+  - {fileID: 8300000, guid: 962cbf4b7ce919143816445c28bb5b0f, type: 3}
+  - {fileID: 8300000, guid: 85481678bac870c4e99aa401ff06ccd0, type: 3}
+  - {fileID: 8300000, guid: 993dc13285e310041a5fae5dfc34bff1, type: 3}
+  - {fileID: 8300000, guid: ca1df82a342f3ae448b747eacdf1272b, type: 3}
+  - {fileID: 8300000, guid: 5126912b0897a6b4ca46e39ef87ce28b, type: 3}
+  - {fileID: 8300000, guid: 9e639782caf34b541ad2bba796b447d9, type: 3}
+  - {fileID: 8300000, guid: 56dd70145b039ec41a4576c58eb39264, type: 3}
+  - {fileID: 8300000, guid: ec1a4d82b1bab454b95cdbd99fc25298, type: 3}
+  - {fileID: 8300000, guid: bae75a4ec61811e46ac6765b5bf3eb4d, type: 3}
+  CrowdAudioSourcePrefab: {fileID: 2614949647526106079, guid: 63cc9d2b43d9d6644a3c2236a3193634, type: 3}
+  VoiceLineMinimumDelay: 15
+  VoiceLineRadius: 35
 --- !u!1 &129006714
 GameObject:
   m_ObjectHideFlags: 0
@@ -521,6 +534,7 @@ GameObject:
   m_Component:
   - component: {fileID: 215745783}
   - component: {fileID: 215745782}
+  - component: {fileID: 215745784}
   m_Layer: 0
   m_Name: GameMaster
   m_TagString: Untagged
@@ -573,6 +587,174 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &215745784
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 215745781}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: bfffb9481123db7408308dbf354d6bb1, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.616
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 2
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.002
+      value: 1
+      inSlope: -500.20065
+      outSlope: -500.20065
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.0029457733
+      value: 0
+      inSlope: -0.4884772
+      outSlope: -0.4884772
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.004
+      value: 0.5
+      inSlope: -125.05016
+      outSlope: -125.05016
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.008
+      value: 0.25
+      inSlope: -31.26254
+      outSlope: -31.26254
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.016
+      value: 0.125
+      inSlope: -7.815635
+      outSlope: -7.815635
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.032
+      value: 0.0625
+      inSlope: -1.9539088
+      outSlope: -1.9539088
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.128
+      value: 0.015625
+      inSlope: -0.1221193
+      outSlope: -0.1221193
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.256
+      value: 0.0078125
+      inSlope: -0.030529825
+      outSlope: -0.030529825
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.512
+      value: 0.00390625
+      inSlope: -0.0076324563
+      outSlope: -0.0076324563
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0.002
+      inSlope: -0.002000801
+      outSlope: -0.002000801
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &225538534
 GameObject:
   m_ObjectHideFlags: 0
@@ -943,6 +1125,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BobbingRange: 1.5
   speed: 0.06
+  VoiceLines:
+  - {fileID: 8300000, guid: 962cbf4b7ce919143816445c28bb5b0f, type: 3}
+  - {fileID: 8300000, guid: 85481678bac870c4e99aa401ff06ccd0, type: 3}
+  - {fileID: 8300000, guid: 993dc13285e310041a5fae5dfc34bff1, type: 3}
+  - {fileID: 8300000, guid: ca1df82a342f3ae448b747eacdf1272b, type: 3}
+  - {fileID: 8300000, guid: 5126912b0897a6b4ca46e39ef87ce28b, type: 3}
+  - {fileID: 8300000, guid: 9e639782caf34b541ad2bba796b447d9, type: 3}
+  - {fileID: 8300000, guid: 56dd70145b039ec41a4576c58eb39264, type: 3}
+  - {fileID: 8300000, guid: ec1a4d82b1bab454b95cdbd99fc25298, type: 3}
+  - {fileID: 8300000, guid: bae75a4ec61811e46ac6765b5bf3eb4d, type: 3}
+  CrowdAudioSourcePrefab: {fileID: 2614949647526106079, guid: 63cc9d2b43d9d6644a3c2236a3193634, type: 3}
+  VoiceLineMinimumDelay: 15
+  VoiceLineRadius: 35
 --- !u!1 &429112877
 GameObject:
   m_ObjectHideFlags: 0
@@ -1943,6 +2138,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BobbingRange: 1.5
   speed: 0.06
+  VoiceLines:
+  - {fileID: 8300000, guid: 962cbf4b7ce919143816445c28bb5b0f, type: 3}
+  - {fileID: 8300000, guid: 85481678bac870c4e99aa401ff06ccd0, type: 3}
+  - {fileID: 8300000, guid: 993dc13285e310041a5fae5dfc34bff1, type: 3}
+  - {fileID: 8300000, guid: ca1df82a342f3ae448b747eacdf1272b, type: 3}
+  - {fileID: 8300000, guid: 5126912b0897a6b4ca46e39ef87ce28b, type: 3}
+  - {fileID: 8300000, guid: 9e639782caf34b541ad2bba796b447d9, type: 3}
+  - {fileID: 8300000, guid: 56dd70145b039ec41a4576c58eb39264, type: 3}
+  - {fileID: 8300000, guid: ec1a4d82b1bab454b95cdbd99fc25298, type: 3}
+  - {fileID: 8300000, guid: bae75a4ec61811e46ac6765b5bf3eb4d, type: 3}
+  CrowdAudioSourcePrefab: {fileID: 2614949647526106079, guid: 63cc9d2b43d9d6644a3c2236a3193634, type: 3}
+  VoiceLineMinimumDelay: 15
+  VoiceLineRadius: 35
 --- !u!1 &860780268
 GameObject:
   m_ObjectHideFlags: 0
@@ -3393,6 +3601,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BobbingRange: 1.5
   speed: 0.06
+  VoiceLines:
+  - {fileID: 8300000, guid: 962cbf4b7ce919143816445c28bb5b0f, type: 3}
+  - {fileID: 8300000, guid: 85481678bac870c4e99aa401ff06ccd0, type: 3}
+  - {fileID: 8300000, guid: 993dc13285e310041a5fae5dfc34bff1, type: 3}
+  - {fileID: 8300000, guid: ca1df82a342f3ae448b747eacdf1272b, type: 3}
+  - {fileID: 8300000, guid: 5126912b0897a6b4ca46e39ef87ce28b, type: 3}
+  - {fileID: 8300000, guid: 9e639782caf34b541ad2bba796b447d9, type: 3}
+  - {fileID: 8300000, guid: 56dd70145b039ec41a4576c58eb39264, type: 3}
+  - {fileID: 8300000, guid: ec1a4d82b1bab454b95cdbd99fc25298, type: 3}
+  - {fileID: 8300000, guid: bae75a4ec61811e46ac6765b5bf3eb4d, type: 3}
+  CrowdAudioSourcePrefab: {fileID: 2614949647526106079, guid: 63cc9d2b43d9d6644a3c2236a3193634, type: 3}
+  VoiceLineMinimumDelay: 15
+  VoiceLineRadius: 35
 --- !u!1 &1214504529
 GameObject:
   m_ObjectHideFlags: 0
@@ -4682,6 +4903,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BobbingRange: 1.5
   speed: 0.06
+  VoiceLines:
+  - {fileID: 8300000, guid: 962cbf4b7ce919143816445c28bb5b0f, type: 3}
+  - {fileID: 8300000, guid: 85481678bac870c4e99aa401ff06ccd0, type: 3}
+  - {fileID: 8300000, guid: 993dc13285e310041a5fae5dfc34bff1, type: 3}
+  - {fileID: 8300000, guid: ca1df82a342f3ae448b747eacdf1272b, type: 3}
+  - {fileID: 8300000, guid: 5126912b0897a6b4ca46e39ef87ce28b, type: 3}
+  - {fileID: 8300000, guid: 9e639782caf34b541ad2bba796b447d9, type: 3}
+  - {fileID: 8300000, guid: 56dd70145b039ec41a4576c58eb39264, type: 3}
+  - {fileID: 8300000, guid: ec1a4d82b1bab454b95cdbd99fc25298, type: 3}
+  - {fileID: 8300000, guid: bae75a4ec61811e46ac6765b5bf3eb4d, type: 3}
+  CrowdAudioSourcePrefab: {fileID: 2614949647526106079, guid: 63cc9d2b43d9d6644a3c2236a3193634, type: 3}
+  VoiceLineMinimumDelay: 15
+  VoiceLineRadius: 35
 --- !u!1 &1633404416
 GameObject:
   m_ObjectHideFlags: 0
@@ -5600,6 +5834,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BobbingRange: 1.5
   speed: 0.06
+  VoiceLines:
+  - {fileID: 8300000, guid: 962cbf4b7ce919143816445c28bb5b0f, type: 3}
+  - {fileID: 8300000, guid: 85481678bac870c4e99aa401ff06ccd0, type: 3}
+  - {fileID: 8300000, guid: 993dc13285e310041a5fae5dfc34bff1, type: 3}
+  - {fileID: 8300000, guid: ca1df82a342f3ae448b747eacdf1272b, type: 3}
+  - {fileID: 8300000, guid: 5126912b0897a6b4ca46e39ef87ce28b, type: 3}
+  - {fileID: 8300000, guid: 9e639782caf34b541ad2bba796b447d9, type: 3}
+  - {fileID: 8300000, guid: 56dd70145b039ec41a4576c58eb39264, type: 3}
+  - {fileID: 8300000, guid: ec1a4d82b1bab454b95cdbd99fc25298, type: 3}
+  - {fileID: 8300000, guid: bae75a4ec61811e46ac6765b5bf3eb4d, type: 3}
+  CrowdAudioSourcePrefab: {fileID: 2614949647526106079, guid: 63cc9d2b43d9d6644a3c2236a3193634, type: 3}
+  VoiceLineMinimumDelay: 15
+  VoiceLineRadius: 35
 --- !u!1 &1949972597
 GameObject:
   m_ObjectHideFlags: 0
