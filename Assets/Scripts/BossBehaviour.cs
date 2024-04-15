@@ -9,8 +9,8 @@ using UnityEngine.UI;
 
 public class BossBehaviour : MonoBehaviour
 {
-    
-    public float maxHealth = 10f;
+    public Config config;
+    public float maxHealth;
     public float health;
     public Image healthBar;
 
@@ -27,9 +27,9 @@ public class BossBehaviour : MonoBehaviour
 
     private GameObject playerObject;
 
-    public float idleTimeBoss1 = 1.5f;
+    public float idleTimeBoss1;
 
-    public float idleTimeBoss2 = 2f;
+    public float idleTimeBoss2;
 
     private double lastActionTime;
 
@@ -55,7 +55,7 @@ public class BossBehaviour : MonoBehaviour
 
     private FistBehaviour fistBehaviour;
 
-    public float Boss2MovementSpeed = 15f;
+    public float Boss2MovementSpeed;
 
     public double Boss2SpellPauseDuration = 5f;
 
@@ -74,6 +74,11 @@ public class BossBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        idleTimeBoss1 = config.assist ? 1.5f:0.7f;
+        idleTimeBoss2 = config.assist ? 2f:1f;
+        Boss2MovementSpeed = config.assist ? 15f:30f;
+
         ui.SetActive(true);
         gameMaster = gameMasterObj.GetComponent<GameMaster>();
         health = maxHealth;

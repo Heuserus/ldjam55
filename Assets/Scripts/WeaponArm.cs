@@ -56,6 +56,8 @@ public class WeaponArm : MonoBehaviour
 
     private int flaskIndex;
 
+    bool flaskInQeue;
+
     void Start(){
         gameMaster = gameMasterObj.GetComponent<GameMaster>();
         weaponScores = Enumerable.Repeat(5, weapons.Length).ToArray();
@@ -75,11 +77,12 @@ public class WeaponArm : MonoBehaviour
         weapon = weapons[getNextWeaponIndex()];
 
         if(config.assist){
-            flaskCount = 15;
+            flaskCount = 20;
         }
         else{
             flaskCount = 5;
         }
+        FlaskUI.GetComponent<TextMeshProUGUI>().text = flaskCount.ToString();
         
     }
 
@@ -135,6 +138,8 @@ public class WeaponArm : MonoBehaviour
                 }
             break;
             case WeaponState.startUp:
+                GameObject.Find("Zoom").GetComponent<Image>().enabled = false;
+                playerCam.GetComponent<Camera>().fieldOfView =60;
                 weapon.weaponInstance = Instantiate(weapon.weaponPrefab,playerCam.transform);
                 weapon.weaponInstance.SetActive(true);
                 weapon.model = weapon.weaponInstance.transform.Find("Holder/Model").gameObject;
@@ -144,6 +149,7 @@ public class WeaponArm : MonoBehaviour
                 weapon.weaponStats = GameObject.Find("WeaponStats");
                 weapon.weaponStatsText = weapon.weaponStats.GetComponent<TextMeshProUGUI>();
                 weapon.displayText();
+                flaskInQeue = false;
                 
                 state = WeaponState.ready;
             break;
@@ -204,9 +210,15 @@ public class WeaponArm : MonoBehaviour
     }
 
     public void setFlaskNext(){
-        Debug.Log("Next weapon is flask!");
+        if(!flaskInQeue && flaskCount>0){
+            Debug.Log("Next weapon is flask!");
+        flaskCount -= 1;
+        FlaskUI.GetComponent<TextMeshProUGUI>().text = flaskCount.ToString();
         weaponScores = weaponScores.Select(x => -1).ToArray();
         weaponScores[flaskIndex] = 50000;
+        flaskInQeue = true;
+        }
+        
     }
 
     private int getNextWeaponIndex(){

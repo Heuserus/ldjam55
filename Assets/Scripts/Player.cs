@@ -247,7 +247,7 @@ public class Player : MonoBehaviour
     public void Damage(int damage){
         health -= damage;
         healthBar.fillAmount = health / maxHealth;
-        if (health/maxHealth < 0.5f){
+        if (health/maxHealth <= 0.5f){
             GetComponent<WeaponArm>().setFlaskNext();
         }
         if(health<=0){

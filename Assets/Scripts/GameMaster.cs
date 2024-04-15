@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class GameMaster : MonoBehaviour
 {
 
+    public Config config;
     public GameObject player;
     public GameObject Boss1Prefab;
     public GameObject Boss1;
@@ -106,7 +107,7 @@ public class GameMaster : MonoBehaviour
         Boss1.GetComponent<BossBehaviour>().gameMasterObj = this.gameObject;
         Boss1.GetComponent<BossBehaviour>().healthBar = BossHealthbar;
         Boss1.GetComponent<BossBehaviour>().ui = boss1Ui;
-        Boss1.GetComponent<BossBehaviour>().maxHealth = Boss1Health;
+        Boss1.GetComponent<BossBehaviour>().maxHealth = config.assist ? Boss1Health*0.6f : Boss1Health;
         Boss1.GetComponent<BossBehaviour>().phase = 1;
         
     }
@@ -115,8 +116,9 @@ public class GameMaster : MonoBehaviour
         Boss2.GetComponent<BossBehaviour>().gameMasterObj = this.gameObject;
         Boss2.GetComponent<BossBehaviour>().healthBar = Boss2Healthbar;
         Boss2.GetComponent<BossBehaviour>().ui = boss2Ui;
-        Boss2.GetComponent<BossBehaviour>().maxHealth = Boss2Health;
-        Boss1.GetComponent<BossBehaviour>().phase = 2;
+
+        Boss2.GetComponent<BossBehaviour>().maxHealth = config.assist ? Boss2Health*0.6f : Boss2Health;
+        Boss2.GetComponent<BossBehaviour>().phase = 2;
         
     }
 

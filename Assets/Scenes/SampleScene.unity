@@ -448,6 +448,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bab708a17aaf9544934c4045ea5c7c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  config: {fileID: 11400000, guid: 510095c4a425aa043b28c0c0f35f6b8d, type: 2}
   player: {fileID: 923107944}
   Boss1Prefab: {fileID: 2719113737852936258, guid: f176857fd8d9b584d87cbddf48a84ecb, type: 3}
   Boss1: {fileID: 0}
@@ -458,8 +459,8 @@ MonoBehaviour:
   boss1Ui: {fileID: 686900465}
   boss2Ui: {fileID: 863907221}
   cutsceneController: {fileID: 129006714}
-  Boss1Health: 10
-  Boss2Health: 25
+  Boss1Health: 100
+  Boss2Health: 150
   pauseKey: 27
   pauseMenu: {fileID: 1584282669}
   playerCam: {fileID: 963194225}
@@ -2012,7 +2013,7 @@ MonoBehaviour:
   fire: 323
   secondary: 324
   flaskCount: 0
-  FlaskUI: {fileID: 0}
+  FlaskUI: {fileID: 1075072230}
 --- !u!114 &923107947
 MonoBehaviour:
   m_ObjectHideFlags: 0

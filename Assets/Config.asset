@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a41ce600954bd2f468aaea58ca916e1e, type: 3}
   m_Name: Config
   m_EditorClassIdentifier: 
-  assist: 1
+  assist: 0
   volume: 1
