@@ -59,6 +59,8 @@ public class Player : MonoBehaviour
     public float groundDrag;
     public float playerHeight;
 
+    public GameObject[] bloodCorners;
+
     private double groundTouchTime;
     
     [Header("Keybinds")]
@@ -250,12 +252,19 @@ public class Player : MonoBehaviour
         if (health/maxHealth <= 0.5f){
             GetComponent<WeaponArm>().setFlaskNext();
         }
+        foreach (var corner in bloodCorners)
+        {
+            var tempColor = corner.GetComponent<Image>().color;
+            tempColor.a = 1-(health/maxHealth);
+            corner.GetComponent<Image>().color = tempColor;
+        }
         if(health<=0){
             Die();
         }
     }
 
     public void Die(){
+        gameMaster.playerDeath();
         Destroy(this.gameObject);
         
     }
@@ -263,7 +272,7 @@ public class Player : MonoBehaviour
      private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "MageAttack"){
-            Damage(1);
+            Damage(2);
             Destroy(other.gameObject);
         }
     }
@@ -271,7 +280,7 @@ public class Player : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "MageAttack"){
-            Damage(1);
+            Damage(2);
             Destroy(collision.gameObject);
         }
     }

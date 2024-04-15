@@ -8,7 +8,7 @@ public class MeteorBehaviour : MonoBehaviour
 
     private int segments = 64;
 
-    public float fallSpeed = 1;
+    public float fallSpeed = 0.5f;
 
     private float fallSpeedOffset;
 

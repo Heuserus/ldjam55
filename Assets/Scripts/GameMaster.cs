@@ -35,6 +35,8 @@ public class GameMaster : MonoBehaviour
 
     private AudioSource audioSource;
 
+    public GameObject DeathScreen;
+
     public enum GameState{
         opening,
         phase1,
@@ -71,9 +73,18 @@ public class GameMaster : MonoBehaviour
                 state = GameState.paused;
             }
             break;
+            
 
         }
         
+    }
+
+    public void playerDeath(){
+        state = GameState.death;
+        DeathScreen.SetActive(true);
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = true;
+
     }
 
     private void doOpening(){
