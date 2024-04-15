@@ -49,6 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxTravelDistance: 200
   speed: 60
+  DecalParticles: {fileID: 2361262533326023243, guid: 6e462490b7804b74a84eb7f68c245382, type: 3}
 --- !u!136 &7379295077284400484
 CapsuleCollider:
   m_ObjectHideFlags: 0
