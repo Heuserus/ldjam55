@@ -14,6 +14,8 @@ public class BulletBehaviour : MonoBehaviour
 
     public float speed;
 
+    public GameObject DecalParticles; 
+
     public void setDirection(Vector3 direction){
         this.direction = direction.normalized * speed;
         transform.LookAt(transform.position + direction.normalized * 10f);
@@ -36,6 +38,9 @@ public class BulletBehaviour : MonoBehaviour
             return;
         }
 
+        GameObject c = Instantiate(DecalParticles, transform.position, Quaternion.identity);
+        Destroy(c, 1);
+
         if (collision.gameObject.tag == "Boss"){
                 BossBehaviour boss = FindObjectOfType<BossBehaviour>();
 
@@ -43,6 +48,7 @@ public class BulletBehaviour : MonoBehaviour
                     boss.Damage(1);
                 }
         }
+
         Destroy(gameObject);
     }
 }

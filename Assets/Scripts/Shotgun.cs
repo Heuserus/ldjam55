@@ -39,22 +39,29 @@ public class Shotgun : Weapon
             audioSource.Play();
             Debug.Log("Shotgun Shoot");
             changeAmmo(-1);
+
+            GameObject a = Instantiate(FireParticles, FirePoint.position, Quaternion.identity);
+            a.transform.LookAt(FirePoint.position + playerCam.transform.TransformDirection(Vector3.forward).normalized);
+            Destroy(a,1);
+
             model.GetComponent<Animator>().Play("Armature|Shoot");
             RaycastHit hit;
             if(Physics.SphereCast(playerCam.transform.position, spread, playerCam.transform.TransformDirection(Vector3.forward), out hit, maxRange)){
 
                 float shotDistance = hit.distance;
                 Debug.DrawRay(FirePoint.position, playerCam.transform.TransformDirection(Vector3.forward) * hit.distance,Color.yellow);
-                GameObject a = Instantiate(FireParticles, FirePoint.position, Quaternion.identity);
-                GameObject b = Instantiate(HitPointParticles, hit.point, Quaternion.identity);
 
-                Destroy(a,1);
-                Destroy(b,2);
 
                 // We hit nothing boys
                 if (hit.transform.tag != "Boss"){
+                    GameObject c = Instantiate(DecalParticles, hit.point, Quaternion.identity);
+                    c.transform.LookAt(FirePoint);
+                    Destroy(c, 1);
                     return;
                 }
+
+                GameObject b = Instantiate(HitPointParticles, hit.point, Quaternion.identity);
+                Destroy(b,2);
 
                 BossBehaviour boss = FindObjectOfType<BossBehaviour>();
 
