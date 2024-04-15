@@ -257,6 +257,7 @@ public class Player : MonoBehaviour
 
     public void Die(){
         Destroy(this.gameObject);
+        
     }
 
      private void OnTriggerEnter(Collider other)

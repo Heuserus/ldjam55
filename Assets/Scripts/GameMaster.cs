@@ -31,6 +31,8 @@ public class GameMaster : MonoBehaviour
 
     public GameObject playerCam;
 
+    public GameObject playerModel;
+
     
 
     public enum GameState{
@@ -73,20 +75,22 @@ public class GameMaster : MonoBehaviour
     }
 
     private void doOpening(){
-        spawnBoss1();
+        playerModel.SetActive(true);
+        //spawnBoss1();
         cutsceneController.GetComponent<CutsceneController>().boss1 = Boss1;
         cutsceneController.GetComponent<CutsceneController>().playScene1();
     }
 
     public void midScene(){
-        
-        spawnBoss2();
+        playerModel.SetActive(true);
+        spawnBoss2();   
         state = GameState.midScene;
         cutsceneController.GetComponent<CutsceneController>().boss2 = Boss2;
         cutsceneController.GetComponent<CutsceneController>().playScene2();
     }
 
     public void endScene(){
+        playerModel.SetActive(true);
         state = GameState.ending;
         cutsceneController.GetComponent<CutsceneController>().playScene3();
     }
@@ -94,10 +98,12 @@ public class GameMaster : MonoBehaviour
     
 
     public void startPhase1(){
+        playerModel.SetActive(false);
         player.GetComponent<WeaponArm>().state = WeaponArm.WeaponState.startUp;
         state = GameState.phase1;
     }
     public void startPhase2(){
+        playerModel.SetActive(false);
         //player.GetComponent<WeaponArm>().state = WeaponArm.WeaponState.startUp;
         state = GameState.phase2;
     }

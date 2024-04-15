@@ -33,7 +33,7 @@ public class BossBehaviour : MonoBehaviour
 
     private double lastActionTime;
 
-    public int teleportRange = 30;
+    public int teleportRange = 29;
 
     private Vector3 teleportTarget;
 

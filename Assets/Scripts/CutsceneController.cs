@@ -51,6 +51,8 @@ public class CutsceneController : MonoBehaviour
         
         playerCam.enabled = false;
         cutsceneCam.enabled = true;
+
+        cutsceneCam.GetComponent<Animator>().Play("Cutscene1");
     }
 
     public void playScene2(){
@@ -76,15 +78,23 @@ public class CutsceneController : MonoBehaviour
 
     public void endCutscene1(){
         
+
+        if(gameMaster.GetComponent<GameMaster>().Boss1 ==  null){
+            gameMaster.GetComponent<GameMaster>().spawnBoss1();
+        }
         setGameUIActive(true);
         setBarsActive(false);
         playerCam.enabled = true;
         cutsceneCam.enabled = false;
         gameMaster.GetComponent<GameMaster>().startPhase1();
         state = sceneState.none;
+        
 
     }
     public void endCutscene2(){
+        if(gameMaster.GetComponent<GameMaster>().Boss2 ==  null){
+            gameMaster.GetComponent<GameMaster>().spawnBoss2();
+        }
         setGameUIActive(true);
         setBarsActive(false);
         playerCam.enabled = true;
