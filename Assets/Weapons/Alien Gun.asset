@@ -17,7 +17,7 @@ MonoBehaviour:
   FirePoint: {fileID: 0}
   FireParticles: {fileID: 0}
   HitPointParticles: {fileID: 0}
-  currentAmmo: 0
+  currentAmmo: 20
   shootingTime: 0.1
   secondaryTime: 0
   coolDownTime: 0.1
@@ -29,4 +29,5 @@ MonoBehaviour:
   playerCam: {fileID: 0}
   weaponStats: {fileID: 0}
   weaponStatsText: {fileID: 0}
+  WeaponSound: {fileID: 8300000, guid: 51fe4fa7405f8d14bafa7d9b15625b01, type: 3}
   bulletPrefab: {fileID: 2713581751359148183, guid: 503ea61fdba8af84d8ebbac3296c772d, type: 3}

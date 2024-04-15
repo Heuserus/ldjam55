@@ -170,6 +170,7 @@ MonoBehaviour:
   MeteorPrefab: {fileID: 7987350064705638667, guid: 0d17b1488feb8a74ab23adba129b2bdd, type: 3}
   FireBallPrefab: {fileID: 2823319917234537586, guid: d75f31cd792eccc4f8c49351c75e73a0, type: 3}
   EarthQuakePrefab: {fileID: 0}
+  AcidCloudPrefab: {fileID: 0}
   Boss2MovementSpeed: 15
   Boss2SpellPauseDuration: 5
   Boss2LastSpellTime: 0
@@ -5136,8 +5137,8 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0.12842178
-      value: 0.39042664
+      time: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0

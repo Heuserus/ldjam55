@@ -19,11 +19,24 @@ public class Shotgun : Weapon
 
     public float damageFallofStartDistance = 5f;
 
-    public int BaseDamage = 3;
+    public int BaseDamage = 5;
+
+    void setupAudioSource(){
+        if (audioSource != null){
+            return;
+        }
+        audioSource = FirePoint.GetComponent<AudioSource>();
+        if (audioSource == null){
+            audioSource = FirePoint.gameObject.AddComponent<AudioSource>();
+        }
+        audioSource.clip = WeaponSound;
+    }
 
     public override void shoot()
     {
         if(currentAmmo > 0 || charges > 0){
+            setupAudioSource();
+            audioSource.Play();
             Debug.Log("Shotgun Shoot");
             changeAmmo(-1);
             model.GetComponent<Animator>().Play("Armature|Shoot");

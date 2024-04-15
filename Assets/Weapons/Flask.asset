@@ -29,4 +29,5 @@ MonoBehaviour:
   playerCam: {fileID: 0}
   weaponStats: {fileID: 0}
   weaponStatsText: {fileID: 0}
+  WeaponSound: {fileID: 8300000, guid: 7cee9d93018584d4caa8f3c09dd0a62f, type: 3}
   heal: 5

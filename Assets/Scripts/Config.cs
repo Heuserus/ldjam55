@@ -14,5 +14,6 @@ public class Config : ScriptableObject
 
     public void setVolume(float v){
         volume = v;
+        AudioListener.volume = volume;
     }
 }

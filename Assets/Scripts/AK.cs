@@ -5,13 +5,25 @@ using UnityEngine;
 [CreateAssetMenu]
 public class AK : Weapon
 {
-    public int Damage = 1;
+    public float Damage = 0.3f;
+
+    void setupAudioSource(){
+        if (audioSource != null){
+            return;
+        }
+        audioSource = FirePoint.GetComponent<AudioSource>();
+        if (audioSource == null){
+            audioSource = FirePoint.gameObject.AddComponent<AudioSource>();
+        }
+        audioSource.clip = WeaponSound;
+    }
     
     
     public override void shoot()
     {
         if(currentAmmo > 0){
-            
+            setupAudioSource();
+            audioSource.Play(); 
             changeAmmo(-1);
             model.GetComponent<Animator>().Play("Armature|Shoot");
             RaycastHit hit;
@@ -30,7 +42,7 @@ public class AK : Weapon
                 BossBehaviour boss = FindObjectOfType<BossBehaviour>();
 
                 if(boss != null){
-                    boss.Damage(1f);
+                    boss.Damage(Damage);
                 }
             }
         }

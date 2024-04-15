@@ -41,7 +41,7 @@ public class BossBehaviour : MonoBehaviour
 
     private string[] ActionChoicesBoss2 = new string[]{"Earthquake", "AcidCloud", "FireBall"};
 
-    private int[] ActionWeightsBoss2 = new int[]{5, 5, 5};
+    private int[] ActionWeightsBoss2 = new int[]{5, 5, 50};
 
     private int[] ActionWeightsBoss1 = new int[]{2,5,5};
 
@@ -187,7 +187,7 @@ public class BossBehaviour : MonoBehaviour
         // Keep it at ground level
         vectorToPlayer.y = 0;
         GameObject fireball = GameObject.Instantiate(FireBallPrefab);
-        fireball.transform.position = transform.position + vectorToPlayer.normalized * 0.5f + new Vector3(0, 1, 0);
+        fireball.transform.position = transform.position + vectorToPlayer.normalized * 0.5f + new Vector3(0, 1.5f, 0);
         fireball.GetComponent<FireballBehaviour>().SetMovementVector(vectorToPlayer);
     }
 
@@ -202,7 +202,7 @@ public class BossBehaviour : MonoBehaviour
             return;
         }
 
-        if ( Vector3.Distance(playerObject.transform.position, transform.position) < 2){
+        if ( Vector3.Distance(playerObject.transform.position, transform.position) < 4){
             Debug.Log("Attacking");
             isInCast = true;
             animator.Play("Armature|Attack1");

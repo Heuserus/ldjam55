@@ -238,15 +238,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -6473961900174185004, guid: db008c090180a884f9cf7c7cb556b27a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 37.5591
+      value: -12.697909
       objectReference: {fileID: 0}
     - target: {fileID: -6473961900174185004, guid: db008c090180a884f9cf7c7cb556b27a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 59.70674
+      value: -5.167813
       objectReference: {fileID: 0}
     - target: {fileID: -6473961900174185004, guid: db008c090180a884f9cf7c7cb556b27a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 63.029015
+      value: 44.153904
       objectReference: {fileID: 0}
     - target: {fileID: -4128383740851021839, guid: db008c090180a884f9cf7c7cb556b27a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -270,15 +270,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1154657634046602983, guid: db008c090180a884f9cf7c7cb556b27a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -12.247233
+      value: 21.475779
       objectReference: {fileID: 0}
     - target: {fileID: 1154657634046602983, guid: db008c090180a884f9cf7c7cb556b27a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 4.597015
+      value: -15.335737
       objectReference: {fileID: 0}
     - target: {fileID: 1154657634046602983, guid: db008c090180a884f9cf7c7cb556b27a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -41.023712
+      value: -52.01158
       objectReference: {fileID: 0}
     - target: {fileID: 3164982295968437048, guid: db008c090180a884f9cf7c7cb556b27a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -286,11 +286,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3164982295968437048, guid: db008c090180a884f9cf7c7cb556b27a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -2.3945024e-15
+      value: -2.3737488e-15
       objectReference: {fileID: 0}
     - target: {fileID: 3164982295968437048, guid: db008c090180a884f9cf7c7cb556b27a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -2.921381e-15
+      value: -2.8960613e-15
       objectReference: {fileID: 0}
     - target: {fileID: 4156520419142343534, guid: db008c090180a884f9cf7c7cb556b27a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -310,7 +310,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5967872085681455850, guid: db008c090180a884f9cf7c7cb556b27a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0.09647836
+      value: 0.09647839
       objectReference: {fileID: 0}
     - target: {fileID: 5967872085681455850, guid: db008c090180a884f9cf7c7cb556b27a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -322,15 +322,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8096501162788568855, guid: db008c090180a884f9cf7c7cb556b27a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -5.0754647
+      value: -23.639372
       objectReference: {fileID: 0}
     - target: {fileID: 8096501162788568855, guid: db008c090180a884f9cf7c7cb556b27a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 8.16732
+      value: 9.583263
       objectReference: {fileID: 0}
     - target: {fileID: 8096501162788568855, guid: db008c090180a884f9cf7c7cb556b27a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -116.33687
+      value: -131.58443
       objectReference: {fileID: 0}
     - target: {fileID: 8417361359673230750, guid: db008c090180a884f9cf7c7cb556b27a, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -570,8 +570,8 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0.004211426
-      value: 0.43380737
+      time: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -668,10 +668,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 0
   serializedVersion: 2
-  m_Radius: 0.14
-  m_Height: 0.1613457
-  m_Direction: 1
-  m_Center: {x: 0.0032754058, y: 0.013289383, z: -0.015417572}
+  m_Radius: 0.23772682
+  m_Height: 0.8087859
+  m_Direction: 0
+  m_Center: {x: -0.25118008, y: 0.112352945, z: 0.083400734}
 --- !u!114 &7962155328080547013
 MonoBehaviour:
   m_ObjectHideFlags: 0

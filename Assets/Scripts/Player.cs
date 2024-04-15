@@ -267,4 +267,12 @@ public class Player : MonoBehaviour
             Destroy(other.gameObject);
         }
     }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "MageAttack"){
+            Damage(1);
+            Destroy(collision.gameObject);
+        }
+    }
 }
