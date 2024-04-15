@@ -39,9 +39,9 @@ public class BossBehaviour : MonoBehaviour
 
     private string[] ActionChoicesBoss1 = new string[]{"Teleport", "MeteorShower", "FireBall"};
 
-    private string[] ActionChoicesBoss2 = new string[]{"Earthquake", "AcidCloud"};
+    private string[] ActionChoicesBoss2 = new string[]{"Earthquake", "AcidCloud", "FireBall"};
 
-    private int[] ActionWeightsBoss2 = new int[]{500, 5};
+    private int[] ActionWeightsBoss2 = new int[]{5, 5, 5};
 
     private int[] ActionWeightsBoss1 = new int[]{2,5,5};
 
@@ -50,6 +50,8 @@ public class BossBehaviour : MonoBehaviour
     public GameObject FireBallPrefab;
 
     public GameObject EarthQuakePrefab;
+
+    public GameObject AcidCloudPrefab;
 
     private ParticleSystem particleSystem;
 
@@ -223,6 +225,11 @@ public class BossBehaviour : MonoBehaviour
                         animator.Play("Armature|Cast4");
                         isInCast = true;
                         break;
+                    case "FireBall":
+                        // Fireball
+                        animator.Play("Armature|Cast1");
+                        isInCast = true; 
+                        break;
                 }
 
             } else{
@@ -254,6 +261,8 @@ public class BossBehaviour : MonoBehaviour
 
     public void CastAcidCloud(){
         Debug.Log("Acid Cloud");
+        GameObject acidCloud = GameObject.Instantiate(AcidCloudPrefab);
+        acidCloud.transform.position = new Vector3(transform.position.x, 15f, transform.position.z) + transform.forward * 0.3f;
     }
 
     public void Die(){

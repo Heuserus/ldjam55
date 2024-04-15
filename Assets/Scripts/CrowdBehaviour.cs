@@ -48,6 +48,5 @@ public class CrowdBehaviour : MonoBehaviour
             return;
         }
         isDescending = !isDescending;
-        Debug.Log("No longer descending");
     } 
 }
