@@ -61,6 +61,13 @@ public class BossBehaviour : MonoBehaviour
 
     public double Boss2LastSpellTime;
 
+    public AudioClip[] Attack0VoiceLines;
+
+    public AudioClip[] Attack1VoiceLines;
+
+    public AudioClip[] Attack2VoiceLines;
+
+    public AudioSource audioSource;
 
     public void Damage(float Damage){
         health -= Damage;
@@ -145,8 +152,27 @@ public class BossBehaviour : MonoBehaviour
         particleSystem.Stop();
     }
 
+    public void PlayAttack0SFX(){
+        audioSource.Stop();
+        audioSource.clip = Attack0VoiceLines[UnityEngine.Random.Range(0, Attack0VoiceLines.Length)];
+        audioSource.Play();
+    }
+
+    public void PlayAttack1SFX(){
+        audioSource.Stop();
+        audioSource.clip = Attack1VoiceLines[UnityEngine.Random.Range(0, Attack1VoiceLines.Length)];
+        audioSource.Play();
+    }
+
+    public void PlayAttack2SFX(){
+        audioSource.Stop();
+        audioSource.clip = Attack2VoiceLines[UnityEngine.Random.Range(0, Attack1VoiceLines.Length)];
+        audioSource.Play();
+    }
+
     public void CastMeteorShower(){
         Debug.Log("Meteor Shower casted!");
+
         int meteorAmount = UnityEngine.Random.Range(5,8);
         for (int i = 0; i <= meteorAmount; i++){
             GameObject.Instantiate(MeteorPrefab, new Vector3(UnityEngine.Random.Range(-teleportRange, teleportRange), 30, UnityEngine.Random.Range(-teleportRange, teleportRange)), Quaternion.identity);
