@@ -21,6 +21,10 @@ public class CutsceneController : MonoBehaviour
 
     public GameObject WinScreen;
 
+    public GameMaster gM;
+
+    public Animator animator;
+
     enum sceneState{
         none,
         scene1,
@@ -52,10 +56,11 @@ public class CutsceneController : MonoBehaviour
         playerCam.enabled = false;
         cutsceneCam.enabled = true;
 
-        cutsceneCam.GetComponent<Animator>().Play("Cutscene1");
+        animator.Play("Cutscene1");
     }
 
     public void playScene2(){
+        
 
         state = sceneState.scene2;
         
@@ -64,6 +69,8 @@ public class CutsceneController : MonoBehaviour
         
         playerCam.enabled = false;
         cutsceneCam.enabled = true;
+
+        animator.Play("Cutscene2");
     }
 
     public void playScene3(){
@@ -74,35 +81,39 @@ public class CutsceneController : MonoBehaviour
         
         playerCam.enabled = false;
         cutsceneCam.enabled = true;
+
+        animator.Play("Cutscene3");
     }
 
     public void endCutscene1(){
-        
+        animator.StopPlayback();
 
-        if(gameMaster.GetComponent<GameMaster>().Boss1 ==  null){
-            gameMaster.GetComponent<GameMaster>().spawnBoss1();
+        if(gM.Boss1 ==  null){
+            gM.spawnBoss1();
         }
         setGameUIActive(true);
         setBarsActive(false);
         playerCam.enabled = true;
         cutsceneCam.enabled = false;
-        gameMaster.GetComponent<GameMaster>().startPhase1();
+        gM.startPhase1();
         state = sceneState.none;
         
 
     }
     public void endCutscene2(){
-        if(gameMaster.GetComponent<GameMaster>().Boss2 ==  null){
-            gameMaster.GetComponent<GameMaster>().spawnBoss2();
+        animator.StopPlayback();
+        if(gM.Boss2 ==  null){
+            gM.spawnBoss2();
         }
         setGameUIActive(true);
         setBarsActive(false);
         playerCam.enabled = true;
         cutsceneCam.enabled = false;
-        gameMaster.GetComponent<GameMaster>().startPhase2();
+        gM.startPhase2();
         state = sceneState.none;
     }
     public void endCutscene3(){
+        animator.StopPlayback();
         WinScreen.SetActive(true);
         setBarsActive(false);
         state = sceneState.none;
@@ -131,5 +142,10 @@ public class CutsceneController : MonoBehaviour
             break;
         }
         
+    }
+
+    void Start(){
+        animator = cutsceneCam.GetComponent<Animator>();
+        gM = gameMaster.GetComponent<GameMaster>();
     }
 }
