@@ -57,23 +57,24 @@ public class HolyGrenade : MonoBehaviour
             return;
         }
 
-        if (GetComponent<AudioSource>() != null){
-            return;
-        }
 
-        AudioSource audioSource = gameObject.AddComponent<AudioSource>();
 
-        audioSource.clip = HitSound;
-
-        audioSource.Play();
-
-        GameObject c = Instantiate(DecalParticles, transform.position, Quaternion.identity);
+              GameObject c = Instantiate(DecalParticles, transform.position, Quaternion.identity);
         Destroy(c, 1);
 
         if (collision.gameObject.tag == "Boss"){
                 BossBehaviour boss = FindObjectOfType<BossBehaviour>();
 
                 if(boss != null){
+                    if (GetComponent<AudioSource>() != null){
+                        return;
+                    }
+                    AudioSource audioSource = gameObject.AddComponent<AudioSource>();
+
+                    audioSource.clip = HitSound;
+
+                    audioSource.Play();
+
                     boss.Damage(Damage);
                     explode();
                 }
