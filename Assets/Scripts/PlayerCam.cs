@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerCam : MonoBehaviour
 {
-    public float sensX;
-    public float sensY;
+    public float MaxSensX = 10000;
+    public float MaxSensY = 10000;
 
     public Transform orientation;
 
@@ -23,8 +23,9 @@ public class PlayerCam : MonoBehaviour
 
     public void Update(){
         if(gameMaster.state == GameMaster.GameState.phase1||gameMaster.state == GameMaster.GameState.phase2){
-        float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensX;
-        float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensY;
+            Debug.Log(gameMaster.config.sens);
+        float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * (MaxSensX * gameMaster.config.sens);
+        float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * (MaxSensY * gameMaster.config.sens);
 
         yRotation += mouseX;
         xRotation -= mouseY;
