@@ -9,29 +9,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3a2fe87b22ace64b9e6fdf119fb3a6c, type: 3}
-  m_Name: Shotgun
+  m_Script: {fileID: 11500000, guid: 6850cdc7315f78c42bf1ce550015bac2, type: 3}
+  m_Name: Banana
   m_EditorClassIdentifier: 
-  name: Shotgun
-  maxAmmo: 8
+  name: Banana
+  maxAmmo: 3
   FirePoint: {fileID: 0}
-  FireParticles: {fileID: 2361262533326023243, guid: 29cac91f65890c3449579c3918b5bc9f, type: 3}
+  FireParticles: {fileID: 2361262533326023243, guid: 293c5b353447c9d4c9be51fb1b920535, type: 3}
   HitPointParticles: {fileID: 4583716949903507398, guid: 788176a1e8fea6543855c6b737faf861, type: 3}
   DecalParticles: {fileID: 2361262533326023243, guid: 6e462490b7804b74a84eb7f68c245382, type: 3}
-  currentAmmo: 8
-  shootingTime: 0.4
-  secondaryTime: 0.2
-  coolDownTime: 0.4
-  secondaryCooldown: 0.1
-  summoningTime: 2
-  weaponPrefab: {fileID: 6395387465177039638, guid: 17e14934a6ff7734992c6c30b58b41af, type: 3}
+  currentAmmo: 0
+  shootingTime: 0.5
+  secondaryTime: 0
+  coolDownTime: 0
+  secondaryCooldown: 0
+  summoningTime: 1
+  weaponPrefab: {fileID: 6395387465177039638, guid: fa5804d893436614093a38ca13fcdc2f, type: 3}
   weaponInstance: {fileID: 0}
   model: {fileID: 0}
   playerCam: {fileID: 0}
   weaponStats: {fileID: 0}
   weaponStatsText: {fileID: 0}
-  WeaponSound: {fileID: 8300000, guid: 05f092b6b159b3d40ad1a37614fe3c99, type: 3}
-  spread: 2
-  maxRange: 30
-  damageFallofStartDistance: 5
-  BaseDamage: 5
+  WeaponSound: {fileID: 0}
+  Damage: 7
