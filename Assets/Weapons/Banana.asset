@@ -30,5 +30,5 @@ MonoBehaviour:
   playerCam: {fileID: 0}
   weaponStats: {fileID: 0}
   weaponStatsText: {fileID: 0}
-  WeaponSound: {fileID: 0}
+  WeaponSound: {fileID: 8300000, guid: 230e92a3cb4158843864a008dba04a18, type: 3}
   Damage: 7

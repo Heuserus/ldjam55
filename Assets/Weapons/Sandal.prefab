@@ -185,6 +185,7 @@ MonoBehaviour:
   MaxLifeTime: 10
   DecalParticles: {fileID: 2361262533326023243, guid: a8788fad0342d0f4989b6b0b4032c752, type: 3}
   Damage: 9
+  HitSound: {fileID: 8300000, guid: c6bd19f0553d20041bff22749cf29d2d, type: 3}
 --- !u!65 &6216328892962071081
 BoxCollider:
   m_ObjectHideFlags: 0

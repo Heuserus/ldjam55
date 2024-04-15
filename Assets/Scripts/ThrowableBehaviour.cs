@@ -18,6 +18,8 @@ public class ThrowableBehaviour : MonoBehaviour
 
     public float Damage = 5;
 
+    public AudioClip HitSound; 
+
     public void Start(){
         gameMaster = GameObject.Find("GameMaster").GetComponent<GameMaster>();
         GetComponent<BoxCollider>().enabled = false;
@@ -52,6 +54,16 @@ public class ThrowableBehaviour : MonoBehaviour
             return;
         }
 
+        if (GetComponent<AudioSource>() != null){
+            return;
+        }
+
+        AudioSource audioSource = gameObject.AddComponent<AudioSource>();
+
+        audioSource.clip = HitSound;
+
+        audioSource.Play();
+
         GameObject c = Instantiate(DecalParticles, transform.position, Quaternion.identity);
         Destroy(c, 1);
 
@@ -63,6 +75,11 @@ public class ThrowableBehaviour : MonoBehaviour
                 }
         }
 
+        Invoke(nameof(Die), HitSound.length);
+
+    }
+
+    private void Die(){
         Destroy(gameObject);
     }
 }

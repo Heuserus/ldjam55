@@ -30,4 +30,4 @@ MonoBehaviour:
   playerCam: {fileID: 0}
   weaponStats: {fileID: 0}
   weaponStatsText: {fileID: 0}
-  WeaponSound: {fileID: 0}
+  WeaponSound: {fileID: 8300000, guid: 46dbee6dd17a82a49b2aed75904f0e12, type: 3}
