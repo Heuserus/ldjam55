@@ -59,7 +59,7 @@ public class BossBehaviour : MonoBehaviour
 
     public float Boss2MovementSpeed;
 
-    public double Boss2SpellPauseDuration = 5f;
+    public double Boss2SpellPauseDuration = 3f;
 
     public double Boss2LastSpellTime;
 
@@ -70,6 +70,8 @@ public class BossBehaviour : MonoBehaviour
     public AudioClip[] Attack2VoiceLines;
 
     public AudioSource audioSource;
+
+    private int spellsSinceLastAttack = 0;
 
     public void Damage(float Damage){
         health -= Damage;
@@ -175,9 +177,9 @@ public class BossBehaviour : MonoBehaviour
     public void CastMeteorShower(){
         Debug.Log("Meteor Shower casted!");
 
-        int meteorAmount = UnityEngine.Random.Range(5,8);
+        int meteorAmount = UnityEngine.Random.Range(6,12);
         for (int i = 0; i <= meteorAmount; i++){
-            GameObject.Instantiate(MeteorPrefab, new Vector3(UnityEngine.Random.Range(-teleportRange, teleportRange), 30, UnityEngine.Random.Range(-teleportRange, teleportRange)), Quaternion.identity);
+            GameObject.Instantiate(MeteorPrefab, new Vector3(UnityEngine.Random.Range(-teleportRange, teleportRange), 40, UnityEngine.Random.Range(-teleportRange, teleportRange)), Quaternion.identity);
         }
     }
 
@@ -201,16 +203,18 @@ public class BossBehaviour : MonoBehaviour
         if (Time.timeAsDouble - lastActionTime < idleTimeBoss2 || isInCast) {
             return;
         }
-
-        if ( Vector3.Distance(playerObject.transform.position, transform.position) < 4){
+        float distanceToPlayer = Vector3.Distance(new Vector3(playerObject.transform.position.x, 0, playerObject.transform.position.z), new Vector3(transform.position.x, 0, transform.position.z));
+        if ( distanceToPlayer < 4 && spellsSinceLastAttack > 3){
             Debug.Log("Attacking");
             isInCast = true;
             animator.Play("Armature|Attack1");
+            spellsSinceLastAttack = 0;
         }
         else{
-            // TODO: Add spell casts
-            if (Time.timeAsDouble - Boss2LastSpellTime > Boss2SpellPauseDuration){
+            if (Time.timeAsDouble - Boss2LastSpellTime > Boss2SpellPauseDuration || (distanceToPlayer < 5 && spellsSinceLastAttack < 3)){
                 string nextSpell = getWeightedActionName(ActionChoicesBoss2, ActionWeightsBoss2);
+
+                spellsSinceLastAttack++;
 
                 Debug.Log("Casting: " + nextSpell);
 
@@ -232,7 +236,7 @@ public class BossBehaviour : MonoBehaviour
                         break;
                 }
 
-            } else{
+            } else if (distanceToPlayer > 2){
                 // Walk
                 Vector3 movementVector = (playerObject.transform.position - transform.position);
                 movementVector.y = 0;

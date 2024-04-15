@@ -53,6 +53,7 @@ public class GameMaster : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>(); 
         audioSource.loop = true;
+        audioSource.volume = 0.1f;
         AudioListener.volume = config.volume;
         doOpening();
         
