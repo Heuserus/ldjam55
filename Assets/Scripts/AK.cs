@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu]
 public class AK : Weapon
 {
-    public int Damage = 1;
+    public float Damage = 0.3f;
 
     void setupAudioSource(){
         if (audioSource != null){
@@ -42,7 +42,7 @@ public class AK : Weapon
                 BossBehaviour boss = FindObjectOfType<BossBehaviour>();
 
                 if(boss != null){
-                    boss.Damage(1f);
+                    boss.Damage(Damage);
                 }
             }
         }

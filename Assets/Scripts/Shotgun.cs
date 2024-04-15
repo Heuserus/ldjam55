@@ -19,7 +19,7 @@ public class Shotgun : Weapon
 
     public float damageFallofStartDistance = 5f;
 
-    public int BaseDamage = 3;
+    public int BaseDamage = 5;
 
     void setupAudioSource(){
         if (audioSource != null){

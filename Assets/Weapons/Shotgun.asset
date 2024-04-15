@@ -17,7 +17,7 @@ MonoBehaviour:
   FirePoint: {fileID: 0}
   FireParticles: {fileID: 2361262533326023243, guid: 29cac91f65890c3449579c3918b5bc9f, type: 3}
   HitPointParticles: {fileID: 4583716949903507398, guid: 788176a1e8fea6543855c6b737faf861, type: 3}
-  currentAmmo: 12
+  currentAmmo: 4
   shootingTime: 0.4
   secondaryTime: 0.2
   coolDownTime: 0.4
@@ -31,6 +31,6 @@ MonoBehaviour:
   weaponStatsText: {fileID: 0}
   WeaponSound: {fileID: 8300000, guid: 05f092b6b159b3d40ad1a37614fe3c99, type: 3}
   spread: 2
-  maxRange: 25
-  damageFallofStartDistance: 2
-  BaseDamage: 3
+  maxRange: 30
+  damageFallofStartDistance: 5
+  BaseDamage: 5

@@ -202,7 +202,7 @@ public class BossBehaviour : MonoBehaviour
             return;
         }
 
-        if ( Vector3.Distance(playerObject.transform.position, transform.position) < 2){
+        if ( Vector3.Distance(playerObject.transform.position, transform.position) < 4){
             Debug.Log("Attacking");
             isInCast = true;
             animator.Play("Armature|Attack1");
