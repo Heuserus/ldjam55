@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.UI;
 using UnityEngine;
+using UnityEngine.Assertions.Must;
 
 public class FireballBehaviour : MonoBehaviour
 {
@@ -39,7 +40,15 @@ public class FireballBehaviour : MonoBehaviour
     void Update()
     {
        if (travelledDistance > maxRange) {
-        Destroy(gameObject);
+            Destroy(gameObject);
        }
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag != "Cover"){
+            return;
+        }
+        Destroy(gameObject);
     }
 }
