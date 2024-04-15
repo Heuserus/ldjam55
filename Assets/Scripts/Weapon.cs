@@ -46,10 +46,15 @@ public class Weapon : ScriptableObject
 
     public TextMeshProUGUI weaponStatsText;
 
+    public AudioClip WeaponSound;
+
+    protected AudioSource audioSource;
+
+
+
     public void changeAmmo(int ammo){
         currentAmmo += ammo;
         displayText();
-
     }
 
     public void displayText(){

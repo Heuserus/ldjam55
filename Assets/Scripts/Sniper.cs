@@ -11,11 +11,22 @@ public class Sniper : Weapon
     public int Damage = 5;
     private bool zoom = false;
 
-    
+    void setupAudioSource(){
+        if (audioSource != null){
+            return;
+        }
+        audioSource = FirePoint.GetComponent<AudioSource>();
+        if (audioSource == null){
+            audioSource = FirePoint.gameObject.AddComponent<AudioSource>();
+        }
+        audioSource.clip = WeaponSound;
+    }
     
     public override void shoot()
     {
         if(currentAmmo > 0){
+            setupAudioSource();
+            audioSource.Play();
             if(playerCam.GetComponent<Camera>().fieldOfView ==60){
             zoom = false; 
             }

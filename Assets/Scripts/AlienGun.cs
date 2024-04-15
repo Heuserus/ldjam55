@@ -7,9 +7,23 @@ public class AlienGun : Weapon
 {
 
     public GameObject bulletPrefab;
+
+    void setupAudioSource(){
+        if (audioSource != null){
+            return;
+        }
+        audioSource = FirePoint.GetComponent<AudioSource>();
+        if (audioSource == null){
+            audioSource = FirePoint.gameObject.AddComponent<AudioSource>();
+        }
+        audioSource.clip = WeaponSound;
+    }
+
     public override void shoot()
     {
         if(currentAmmo > 0){
+            setupAudioSource();
+            audioSource.Play();
             changeAmmo(-1);
             model.GetComponent<Animator>().Play("Armature|Shoot");
             GameObject bullet = GameObject.Instantiate(bulletPrefab);
